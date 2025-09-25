@@ -27,8 +27,19 @@ export function Header() {
   useEffect(() => {
     setActiveDropdown(null);
     setIsMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('.dropdown-container')) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
 
   // Professional keyboard shortcuts
   useEffect(() => {
@@ -88,10 +99,15 @@ export function Header() {
   ];
 
   const isActive = (path) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
     return location.pathname === path || location.pathname.startsWith(path + '/');
   };
 
-  const handleDropdownToggle = (itemName) => {
+  const handleDropdownClick = (e, itemName) => {
+    e.preventDefault();
+    e.stopPropagation();
     setActiveDropdown(activeDropdown === itemName ? null : itemName);
   };
 
@@ -101,246 +117,248 @@ export function Header() {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-black/95 backdrop-blur-xl border-b border-white/10 shadow-professional' 
-        : 'bg-black/80 backdrop-blur-md border-b border-white/5'
-    }`}>
-      <div className="container-professional">
-        <div className="flex justify-between items-center h-20">
-          {/* Professional Logo */}
-          <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center group" onClick={handleLinkClick}>
-              <div className="w-10 h-10 bg-gradient-to-r from-white to-gray-200 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-glow transition-all duration-300 group-hover:scale-105">
-                <span className="text-black font-black text-xl">A</span>
-              </div>
-              <span className="ml-3 text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
-                ARCHT
-              </span>
-            </Link>
-          </div>
+    <>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-black/95 backdrop-blur-xl border-b border-white/[.10] shadow-2xl' 
+          : 'bg-black/80 backdrop-blur-md border-b border-white/[.05]'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            {/* Professional Logo */}
+            <div className="flex-shrink-0">
+              <Link to="/" className="flex items-center group" onClick={handleLinkClick}>
+                <div className="w-10 h-10 bg-gradient-to-r from-white to-gray-200 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-glow transition-all duration-300 group-hover:scale-105">
+                  <span className="text-black font-black text-xl">A</span>
+                </div>
+                <span className="ml-3 text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  ARCHT
+                </span>
+              </Link>
+            </div>
 
-          {/* Professional Desktop Navigation */}
-          <nav className="hidden lg:block">
-            <div className="flex items-center space-x-2">
-              {navItems.map((item) => (
-                <div key={item.name} className="relative">
-                  {item.dropdown ? (
-                    <div className="relative">
-                      <button
-                        className={`flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+            {/* Professional Desktop Navigation */}
+            <nav className="hidden lg:block">
+              <div className="flex items-center space-x-1">
+                {navItems.map((item) => (
+                  <div key={item.name} className="relative dropdown-container">
+                    {item.dropdown ? (
+                      <div className="relative">
+                        <button
+                          className={`flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                            isActive(item.path)
+                              ? 'bg-white/[.10] text-white shadow-lg'
+                              : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
+                          }`}
+                          onClick={(e) => handleDropdownClick(e, item.name)}
+                        >
+                          {item.name}
+                          <ChevronDown className={`ml-2 w-4 h-4 transition-transform duration-200 ${
+                            activeDropdown === item.name ? 'rotate-180' : ''
+                          }`} />
+                        </button>
+                        
+                        {activeDropdown === item.name && (
+                          <div className="absolute top-full left-0 mt-2 w-80 bg-black/95 backdrop-blur-xl border border-white/[.10] rounded-2xl shadow-2xl z-50 overflow-hidden animate-fade-in">
+                            <div className="p-2">
+                              {item.dropdown.map((subItem) => (
+                                <Link
+                                  key={subItem.path}
+                                  to={subItem.path}
+                                  className={`block p-4 rounded-xl transition-all duration-200 group ${
+                                    isActive(subItem.path)
+                                      ? 'bg-white/[.10] text-white'
+                                      : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
+                                  }`}
+                                  onClick={handleLinkClick}
+                                >
+                                  <div className="font-medium text-sm mb-1 group-hover:text-cyan-300 transition-colors">
+                                    {subItem.name}
+                                  </div>
+                                  <div className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
+                                    {subItem.description}
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <Link
+                        to={item.path}
+                        className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
                           isActive(item.path)
-                            ? 'bg-white/[.10] text-white shadow-professional'
+                            ? 'bg-white/[.10] text-white shadow-lg'
                             : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
                         }`}
-                        onClick={() => handleDropdownToggle(item.name)}
+                        onClick={handleLinkClick}
                       >
                         {item.name}
-                        <ChevronDown className={`ml-2 w-4 h-4 transition-transform duration-200 ${
-                          activeDropdown === item.name ? 'rotate-180' : ''
-                        }`} />
-                      </button>
-                      
-                      {activeDropdown === item.name && (
-                        <div className="absolute top-full left-0 mt-2 w-80 bg-black/95 backdrop-blur-xl border border-white/[.10] rounded-2xl shadow-floating z-50 overflow-hidden">
-                          <div className="p-2">
-                            {item.dropdown.map((subItem) => (
-                              <Link
-                                key={subItem.path}
-                                to={subItem.path}
-                                className={`block p-4 rounded-xl transition-all duration-200 group ${
-                                  isActive(subItem.path)
-                                    ? 'bg-white/[.10] text-white'
-                                    : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
-                                }`}
-                                onClick={handleLinkClick}
-                              >
-                                <div className="font-medium text-sm mb-1 group-hover:text-cyan-300 transition-colors">
-                                  {subItem.name}
-                                </div>
-                                <div className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
-                                  {subItem.description}
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <Link
-                      to={item.path}
-                      className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
-                        isActive(item.path)
-                          ? 'bg-white/[.10] text-white shadow-professional'
-                          : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
-                      }`}
-                      onClick={handleLinkClick}
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
-            </div>
-          </nav>
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </nav>
 
-          {/* Professional Action Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              {/* Professional Search */}
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsSearchOpen(true)}
-                className="flex items-center space-x-3 px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-200 group"
-              >
-                <Search className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                <span className="text-sm">Search</span>
-                <kbd className="hidden xl:inline-flex items-center px-2 py-1 text-xs font-medium text-gray-500 bg-white/5 border border-white/10 rounded-lg">
-                  ⌘K
-                </kbd>
+            {/* Professional Action Buttons */}
+            <div className="hidden lg:flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
+                {/* Professional Search */}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsSearchOpen(true)}
+                  className="flex items-center space-x-3 px-4 py-2 text-gray-400 hover:text-white hover:bg-white/[.05] transition-all duration-200 group"
+                >
+                  <Search className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <span className="text-sm">Search</span>
+                  <kbd className="hidden xl:inline-flex items-center px-2 py-1 text-xs font-medium text-gray-500 bg-white/[.05] border border-white/[.10] rounded-lg">
+                    ⌘K
+                  </kbd>
+                </Button>
+
+                {/* Professional Notifications */}
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-400 hover:text-white hover:bg-white/[.05] transition-all duration-200"
+                >
+                  <NotificationBadge />
+                </Button>
+
+                <ThemeToggle />
+              </div>
+
+              <div className="w-px h-8 bg-white/[.10]"></div>
+
+              <Button variant="outline" size="default" asChild>
+                <Link to="/onboarding" onClick={handleLinkClick}>
+                  Government Onboarding
+                </Link>
               </Button>
+              
+              <Button size="default" variant="primary" asChild>
+                <Link to="/platform" onClick={handleLinkClick}>
+                  Explore Platform
+                </Link>
+              </Button>
+            </div>
 
-              {/* Professional Notifications */}
+            {/* Professional Mobile Controls */}
+            <div className="lg:hidden flex items-center space-x-3">
               <Button
                 variant="ghost"
-                size="icon"
-                className="text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-200"
+                size="icon-sm"
+                onClick={() => setIsSearchOpen(true)}
+                className="text-gray-400 hover:text-white hover:bg-white/[.05] transition-all duration-200"
+              >
+                <Search className="w-4 h-4" />
+              </Button>
+              
+              <Button
+                variant="ghost"
+                size="icon-sm"
+                className="text-gray-400 hover:text-white hover:bg-white/[.05] transition-all duration-200"
               >
                 <NotificationBadge />
               </Button>
 
               <ThemeToggle />
+
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-gray-400 hover:text-white hover:bg-white/[.05] transition-all duration-200"
+              >
+                {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </Button>
             </div>
-
-            <div className="w-px h-8 bg-white/10"></div>
-
-            <Button variant="outline" size="default" asChild elevation="base">
-              <Link to="/onboarding" onClick={handleLinkClick}>
-                Government Onboarding
-              </Link>
-            </Button>
-            
-            <Button size="default" variant="primary" asChild elevation="elevated">
-              <Link to="/platform" onClick={handleLinkClick}>
-                Explore Platform
-              </Link>
-            </Button>
-          </div>
-
-          {/* Professional Mobile Controls */}
-          <div className="lg:hidden flex items-center space-x-3">
-            <Button
-              variant="ghost"
-              size="icon-sm"
-              onClick={() => setIsSearchOpen(true)}
-              className="text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-200"
-            >
-              <Search className="w-4 h-4" />
-            </Button>
-            
-            <Button
-              variant="ghost"
-              size="icon-sm"
-              className="text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-200"
-            >
-              <NotificationBadge />
-            </Button>
-
-            <ThemeToggle />
-
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-200"
-            >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
           </div>
         </div>
-      </div>
 
-      {/* Professional Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="lg:hidden border-t border-white/10">
-          <div className="bg-black/95 backdrop-blur-xl">
-            <div className="container-padding py-4 space-y-2">
-              {navItems.map((item) => (
-                <div key={item.path}>
-                  {item.dropdown ? (
-                    <div>
-                      <button
-                        className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
+        {/* Professional Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="lg:hidden border-t border-white/[.10]">
+            <div className="bg-black/95 backdrop-blur-xl">
+              <div className="px-4 py-4 space-y-2">
+                {navItems.map((item) => (
+                  <div key={item.path}>
+                    {item.dropdown ? (
+                      <div>
+                        <button
+                          className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
+                            isActive(item.path)
+                              ? 'bg-white/[.10] text-white'
+                              : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
+                          }`}
+                          onClick={(e) => handleDropdownClick(e, item.name)}
+                        >
+                          {item.name}
+                          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
+                            activeDropdown === item.name ? 'rotate-180' : ''
+                          }`} />
+                        </button>
+                        {activeDropdown === item.name && (
+                          <div className="ml-4 mt-2 space-y-1">
+                            {item.dropdown.map((subItem) => (
+                              <Link
+                                key={subItem.path}
+                                to={subItem.path}
+                                className={`block px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
+                                  isActive(subItem.path)
+                                    ? 'bg-white/[.10] text-white'
+                                    : 'text-gray-400 hover:bg-white/[.05] hover:text-white'
+                                }`}
+                                onClick={handleLinkClick}
+                              >
+                                <div className="font-medium">{subItem.name}</div>
+                                <div className="text-xs text-gray-500 mt-1">{subItem.description}</div>
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <Link
+                        to={item.path}
+                        className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
                           isActive(item.path)
                             ? 'bg-white/[.10] text-white'
                             : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
                         }`}
-                        onClick={() => handleDropdownToggle(item.name)}
+                        onClick={handleLinkClick}
                       >
                         {item.name}
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
-                          activeDropdown === item.name ? 'rotate-180' : ''
-                        }`} />
-                      </button>
-                      {activeDropdown === item.name && (
-                        <div className="ml-4 mt-2 space-y-1">
-                          {item.dropdown.map((subItem) => (
-                            <Link
-                              key={subItem.path}
-                              to={subItem.path}
-                              className={`block px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
-                                isActive(subItem.path)
-                                  ? 'bg-white/[.10] text-white'
-                                  : 'text-gray-400 hover:bg-white/[.05] hover:text-white'
-                              }`}
-                              onClick={handleLinkClick}
-                            >
-                              <div className="font-medium">{subItem.name}</div>
-                              <div className="text-xs text-gray-500 mt-1">{subItem.description}</div>
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <Link
-                      to={item.path}
-                      className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
-                        isActive(item.path)
-                          ? 'bg-white/[.10] text-white'
-                          : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
-                      }`}
-                      onClick={handleLinkClick}
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
-              
-              <div className="pt-6 pb-4 border-t border-white/[.10] mt-6">
-                <div className="space-y-3">
-                  <Button variant="outline" size="default" className="w-full" asChild>
-                    <Link to="/onboarding" onClick={handleLinkClick}>
-                      Government Onboarding
-                    </Link>
-                  </Button>
-                  <Button size="default" variant="primary" className="w-full" asChild>
-                    <Link to="/platform" onClick={handleLinkClick}>
-                      Explore Platform
-                    </Link>
-                  </Button>
+                      </Link>
+                    )}
+                  </div>
+                ))}
+                
+                <div className="pt-6 pb-4 border-t border-white/[.10] mt-6">
+                  <div className="space-y-3">
+                    <Button variant="outline" size="default" className="w-full" asChild>
+                      <Link to="/onboarding" onClick={handleLinkClick}>
+                        Government Onboarding
+                      </Link>
+                    </Button>
+                    <Button size="default" variant="primary" className="w-full" asChild>
+                      <Link to="/platform" onClick={handleLinkClick}>
+                        Explore Platform
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Professional Global Search */}
-      <GlobalSearch isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
-    </header>
+        {/* Professional Global Search */}
+        <GlobalSearch isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      </header>
+    </>
   );
 }
