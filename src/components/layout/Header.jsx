@@ -10,12 +10,25 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  // Detectar scroll para mejorar el sticky behavior
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Cerrar dropdowns cuando cambie la ruta
   useEffect(() => {
     setActiveDropdown(null);
     setIsMenuOpen(false);
+    // Scroll to top when route changes
+    window.scrollTo(0, 0);
   }, [location.pathname]);
 
   // Manejar tecla de búsqueda
@@ -85,7 +98,9 @@ export function Header() {
   };
 
   return (
-    <header className="bg-black/90 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
+    <header className={`bg-black/95 backdrop-blur-md border-b border-gray-800 fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+      isScrolled ? 'shadow-lg' : ''
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -104,7 +119,7 @@ export function Header() {
               {navItems.map((item) => (
                 <div key={item.name} className="relative">
                   {item.dropdown ? (
-                    <div>
+                    <div className="relative">
                       <button
                         className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${
                           isActive(item.path)
@@ -121,21 +136,23 @@ export function Header() {
                         </div>
                       </button>
                       {activeDropdown === item.name && (
-                        <div className="ml-4 space-y-1 mt-2">
+                        <div className="absolute top-full left-0 mt-1 w-48 bg-black/95 backdrop-blur-md border border-gray-700 rounded-lg shadow-xl z-50">
+                          <div className="py-2">
                           {item.dropdown.map((subItem) => (
                             <Link
                               key={subItem.path}
                               to={subItem.path}
-                              className={`block px-3 py-1 rounded-md text-sm transition-colors ${
+                                className={`block px-4 py-2 text-sm transition-colors ${
                                 isActive(subItem.path)
-                                  ? 'bg-white/10 text-white'
-                                  : 'text-gray-400 hover:bg-gray-800 hover:text-white'
+                                    ? 'bg-white/10 text-white'
+                                    : 'text-gray-300 hover:bg-white/10 hover:text-white'
                               }`}
                               onClick={handleLinkClick}
                             >
                               {subItem.name}
                             </Link>
                           ))}
+                          </div>
                         </div>
                       )}
                     </div>
@@ -235,7 +252,7 @@ export function Header() {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/95 backdrop-blur-md border-t border-gray-800">
             {navItems.map((item) => (
               <div key={item.path}>
                 {item.dropdown ? (

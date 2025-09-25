@@ -189,7 +189,7 @@ function Economics() {
           </div>
         </div>
       </section>
-
+    </div>
       {/* Design Principles */}
       <div className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center mb-16">

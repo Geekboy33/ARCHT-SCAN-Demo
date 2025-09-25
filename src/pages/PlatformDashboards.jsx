@@ -90,7 +90,7 @@ function PlatformDashboards() {
           </div>
         </div>
       </section>
-
+    </div>
       {/* Dashboard Features */}
       <div className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center mb-16">
