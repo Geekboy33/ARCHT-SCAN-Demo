@@ -309,47 +309,14 @@ function ARCHTScan() {
   }
 
   return (
-    <div className="bg-black text-white min-h-screen overflow-x-hidden pt-0">
+    <div className="bg-black text-white min-h-screen">
       {/* Sidebar avanzado */}
-      {!sidebarCollapsed && (
-        <div className="fixed left-0 top-16 h-[calc(100vh-4rem)] w-80 bg-gray-900/95 backdrop-blur-md border-r border-gray-800 z-40 overflow-y-auto">
-          <div className="p-6">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-semibold text-white">ARCHT SCAN Demo</h2>
-              <Button variant="ghost" size="sm" onClick={handleToggleSidebar}>
-                <XCircle className="w-4 h-4" />
-              </Button>
-            </div>
-            
-            {/* Quick Stats */}
-            <div className="space-y-4 mb-6">
-              <div className="bg-gray-800/50 rounded-lg p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-gray-400">Total Assets</span>
-                  <span className="text-lg font-bold text-white">{allAssets.length}</span>
-                </div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-gray-400">Active Scans</span>
-                  <span className="text-lg font-bold text-green-400">{systemHealth.activeScans}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-400">Compliance</span>
-                  <span className="text-lg font-bold text-white">{systemHealth.complianceScore}%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
-      {/* Header del ARCHT SCAN optimizado */}
-      <div className={`sticky top-16 z-30 bg-black/95 backdrop-blur-md border-b border-gray-800 ${sidebarCollapsed ? '' : 'ml-80'}`}>
+      {/* Header del ARCHT SCAN */}
+      <div className="bg-black/95 backdrop-blur-md border-b border-gray-800 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm" onClick={handleToggleSidebar} className="text-gray-400 hover:text-white">
-                <BarChart3 className="w-5 h-5" />
-              </Button>
               <div className="w-12 h-12 bg-gradient-to-r from-white to-gray-300 rounded-xl flex items-center justify-center shadow-lg">
                 <span className="text-black font-bold text-xl">A</span>
               </div>
@@ -385,7 +352,7 @@ function ARCHTScan() {
         </div>
       </div>
 
-      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ${sidebarCollapsed ? '' : 'ml-80'} min-h-screen`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* System Health Overview optimizado */}
         <div className="mb-8">
           <h2 className="text-hierarchy-3 font-display text-glow-white text-contrast-high mb-6 animate-fade-in-up">
@@ -455,7 +422,7 @@ function ARCHTScan() {
         {/* Controles de filtrado y búsqueda */}
         <Card className="mb-8 bg-gray-900/50 border border-gray-800">
           <CardContent className="p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-4">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <input
@@ -501,6 +468,14 @@ function ARCHTScan() {
 
               <div className="flex items-center space-x-2">
                 <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleToggleSidebar}
+                  className="text-gray-400 hover:text-white"
+                >
+                  <BarChart3 className="w-4 h-4" />
+                </Button>
+                <Button
                   variant={viewMode === 'grid' ? 'default' : 'ghost'}
                   size="sm"
                   onClick={() => setViewMode('grid')}
@@ -542,6 +517,41 @@ function ARCHTScan() {
             </div>
           </CardContent>
         </Card>
+
+        {/* Sidebar como modal cuando está abierto */}
+        {!sidebarCollapsed && (
+          <>
+            <div className="fixed inset-0 bg-black/50 z-40" onClick={handleToggleSidebar}></div>
+            <div className="fixed right-0 top-0 h-full w-80 bg-gray-900/95 backdrop-blur-md border-l border-gray-800 z-50 overflow-y-auto">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-lg font-semibold text-white">ARCHT SCAN Stats</h2>
+                  <Button variant="ghost" size="sm" onClick={handleToggleSidebar}>
+                    <XCircle className="w-4 h-4" />
+                  </Button>
+                </div>
+                
+                {/* Quick Stats */}
+                <div className="space-y-4 mb-6">
+                  <div className="bg-gray-800/50 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-gray-400">Total Assets</span>
+                      <span className="text-lg font-bold text-white">{allAssets.length}</span>
+                    </div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-gray-400">Active Scans</span>
+                      <span className="text-lg font-bold text-green-400">{systemHealth.activeScans}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-400">Compliance</span>
+                      <span className="text-lg font-bold text-white">{systemHealth.complianceScore}%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
 
         {/* Lista de activos */}
         <Card className="bg-gray-900/50 border border-gray-800">
