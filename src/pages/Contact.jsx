@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Mail, Phone, MapPin, Clock, Send, MessageSquare } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 
 function Contact() {
+  const { t } = useTranslation();
+  
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
-      title: "Email",
+      title: t('contact.email'),
       details: [
         "contact@archetypworld.org",
         "contact@aureongquantum.com"
@@ -17,15 +20,15 @@ function Contact() {
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
+      title: t('contact.phone'),
       details: [
-        "Available upon request"
+        t('contact.availableUponRequest')
       ],
       color: "text-white"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: "Offices",
+      title: t('contact.offices'),
       details: [
         "São Paulo, Brazil",
         "Dubai, UAE",
@@ -35,10 +38,10 @@ function Contact() {
     },
     {
       icon: <Clock className="w-6 h-6" />,
-      title: "Business Hours",
+      title: t('contact.businessHours'),
       details: [
-        "24/7 Support",
-        "Global Coverage"
+        t('contact.support247'),
+        t('contact.globalCoverage')
       ],
       color: "text-gray-400"
     }
@@ -86,18 +89,18 @@ function Contact() {
             </Button>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-              Contact Us
+              {t('contact.title')}
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-              Get in touch with our team for institutional requests, partnerships, and technical support.
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8" dir="auto">
+              {t('contact.subtitle')}
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">
               <div className="bg-gradient-to-r from-white/10 to-gray-300/10 px-6 py-3 rounded-full border border-white/20">
-                <span className="text-white font-semibold">24/7 Support</span>
+                <span className="text-white font-semibold">{t('contact.support247')}</span>
               </div>
               <div className="bg-gradient-to-r from-gray-300/10 to-gray-500/10 px-6 py-3 rounded-full border border-gray-300/20">
-                <span className="text-gray-300 font-semibold">Global Coverage</span>
+                <span className="text-gray-300 font-semibold">{t('contact.globalCoverage')}</span>
               </div>
               <div className="bg-gradient-to-r from-gray-500/10 to-gray-700/10 px-6 py-3 rounded-full border border-gray-500/20">
                 <span className="text-gray-400 font-semibold">Institutional</span>
@@ -141,9 +144,9 @@ function Contact() {
       <section className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-white">Departments</h2>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto px-4">
-              Specialized teams for different types of inquiries and partnerships.
+            <h2 className="text-4xl font-bold mb-4 text-white" dir="auto">{t('contact.getInTouch')}</h2>
+            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto px-4" dir="auto">
+              {t('contact.contactTeam')}
             </p>
           </div>
 
@@ -265,16 +268,16 @@ function Contact() {
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6 text-white">Ready to Get Started?</h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Join the future of tokenized real-world assets with ARCHT Protocol.
+          <h2 className="text-4xl font-bold mb-6 text-white" dir="auto">{t('contact.readyToStart')}</h2>
+          <p className="text-xl text-gray-300 mb-8" dir="auto">
+            {t('contact.joinFuture')}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button variant="gradient" size="lg">
-              Schedule Consultation
+              {t('contact.scheduleConsultation')}
             </Button>
             <Button variant="outline" size="lg">
-              Download Whitepaper
+              {t('contact.downloadWhitepaper')}
             </Button>
           </div>
         </div>

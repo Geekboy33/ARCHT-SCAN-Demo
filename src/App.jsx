@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import './lib/i18n'; // Initialize i18n
 import { Layout } from './components/layout/Layout';
 import { NotificationProvider } from './components/ui/NotificationSystem';
 import { ThemeProvider } from './components/ui/ThemeSystem';

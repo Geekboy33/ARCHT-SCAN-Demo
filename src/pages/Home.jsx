@@ -1,5 +1,6 @@
 import React, { useState, useEffect, memo, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { 
   TrendingUp, TrendingDown, Shield, Globe, Zap, BarChart3, Leaf,
   ChevronRight, Play, DollarSign, Activity, Users, CheckCircle,
@@ -9,9 +10,11 @@ import { ARCHT_INDICES, getAllAssets } from '../data/assets';
 import { Button } from '../components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle, MetricCard, FeatureCard } from '../components/ui/Card';
 import { useNotificationActions } from '../components/ui/NotificationSystem';
+import { LanguageNotification } from '../components/ui/LanguageSelector';
 import Threads from '../components/Threads';
 
 function Home() {
+  const { t } = useTranslation();
   const { showSuccess, showInfo } = useNotificationActions();
   const [animatedStats, setAnimatedStats] = useState({
     tvl: 0,
@@ -68,41 +71,41 @@ function Home() {
   const keyFeatures = useMemo(() => [
     {
       icon: Shield,
-      title: "Sovereign Grade Security",
-      description: "Military-grade NFC chips, quantum-resistant encryption, and multi-signature validation",
+      title: t('features.sovereignSecurity'),
+      description: t('features.sovereignSecurityDesc'),
       features: ["Quantum-resistant encryption", "Multi-signature validation", "Hardware security modules", "Zero-knowledge proofs"]
     },
     {
       icon: Globe,
-      title: "Global Interoperability", 
-      description: "Native integration with 15+ blockchain networks and traditional banking systems",
+      title: t('features.globalInteroperability'),
+      description: t('features.globalInteroperabilityDesc'),
       features: ["15+ blockchain networks", "CBDC integration", "Traditional banking", "Cross-border payments"]
     },
     {
       icon: Zap,
-      title: "Instant Liquidity (T+0)",
-      description: "Transform traditionally illiquid assets into instantly tradable digital tokens",
+      title: t('features.instantLiquidity'),
+      description: t('features.instantLiquidityDesc'),
       features: ["Sub-second settlement", "24/7 trading", "Global liquidity pools", "Automated market making"]
     },
     {
       icon: BarChart3,
-      title: "AI-Powered Analytics",
-      description: "95%+ accuracy in asset validation using satellite data and predictive AI",
+      title: t('features.aiAnalytics'),
+      description: t('features.aiAnalyticsDesc'),
       features: ["Satellite monitoring", "Predictive analytics", "Risk assessment", "ESG scoring"]
     },
     {
       icon: TrendingUp,
-      title: "Institutional Grade",
-      description: "MiCA, FATF, Basel III compliant with automated regulatory reporting",
+      title: t('features.institutionalGrade'),
+      description: t('features.institutionalGradeDesc'),
       features: ["MiCA compliance", "FATF standards", "Basel III ready", "Automated reporting"]
     },
     {
       icon: Leaf,
-      title: "ESG Transparency",
-      description: "Complete traceability from extraction to consumption with real-time ESG metrics",
+      title: t('features.esgTransparency'),
+      description: t('features.esgTransparencyDesc'),
       features: ["Real-time monitoring", "Carbon tracking", "Impact measurement", "Sustainability goals"]
     }
-  ], []);
+  ], [t]);
 
   const trustMetrics = [
     { label: "Uptime", value: "99.99%", icon: Activity },
@@ -144,19 +147,18 @@ function Home() {
           </div>
           
           {/* Hero Title - Professional Typography */}
-          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-8 sm:mb-12 animate-fade-in-professional animate-stagger-1 text-glow-professional bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
-            ARCHT
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-8 sm:mb-12 animate-fade-in-professional animate-stagger-1 text-glow-professional bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent" dir="auto">
+            {t('home.heroTitle')}
           </h1>
           
           {/* Professional Subtitle */}
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 sm:mb-16 max-w-6xl mx-auto leading-relaxed animate-slide-up-professional animate-stagger-2 text-shadow-subtle px-4">
-            Sovereign Digital Infrastructure for Real‑World Asset Tokenization
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 sm:mb-16 max-w-6xl mx-auto leading-relaxed animate-slide-up-professional animate-stagger-2 text-shadow-subtle px-4" dir="auto">
+            {t('home.heroSubtitle')}
           </p>
 
           {/* Enhanced Description */}
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-16 sm:mb-20 max-w-5xl mx-auto leading-relaxed animate-fade-in-professional animate-stagger-3 px-4">
-            Convert verified resources into programmable, tradable, and fully auditable digital assets. 
-            Instant liquidity (T+0), MRV‑grade traceability, and institutional compliance by design.
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-16 sm:mb-20 max-w-5xl mx-auto leading-relaxed animate-fade-in-professional animate-stagger-3 px-4" dir="auto">
+            {t('home.heroDescription')}
           </p>
 
           {/* Professional CTA Buttons */}
@@ -164,7 +166,7 @@ function Home() {
             <Button asChild size="xl" variant="primary" elevation="floating" className="group">
               <Link to="/protocol">
                 <span className="flex items-center">
-                  Explore the Protocol 
+                  {t('home.exploreProtocol')}
                   <ChevronRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
@@ -173,7 +175,7 @@ function Home() {
               <Link to="/onboarding">
                 <span className="flex items-center">
                   <Play className="mr-3 w-6 h-6 group-hover:scale-110 transition-transform" /> 
-                  Government Onboarding
+                  {t('home.governmentOnboarding')}
                 </span>
               </Link>
             </Button>
@@ -182,7 +184,7 @@ function Home() {
           {/* Professional Metrics Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-16 sm:mb-24 animate-fade-in-professional animate-stagger-5 px-4">
             <MetricCard
-              title="Total Value Locked"
+              title={t('home.totalValueLocked')}
               value={`$${animatedStats.tvl.toFixed(1)}B`}
               subtitle="Institutional assets under management"
               icon={DollarSign}
@@ -190,7 +192,7 @@ function Home() {
             />
 
             <MetricCard
-              title="Daily Volume"
+              title={t('home.dailyVolume')}
               value={`$${animatedStats.volume.toFixed(1)}B`}
               subtitle="24-hour trading volume"
               icon={Activity}
@@ -198,7 +200,7 @@ function Home() {
             />
 
             <MetricCard
-              title="Active Assets"
+              title={t('home.activeAssets')}
               value={animatedStats.assets}
               subtitle="Tokenized real-world assets"
               icon={Users}
@@ -206,7 +208,7 @@ function Home() {
             />
 
             <MetricCard
-              title="Global Reach"
+              title={t('home.globalReach')}
               value={animatedStats.countries}
               subtitle="Countries with active nodes"
               icon={Globe}
@@ -220,11 +222,11 @@ function Home() {
       <section className="section-professional bg-secondary">
         <div className="container-professional">
           <div className="content-professional mb-20">
-            <h2 className="text-title mb-6 text-glow-accent">
-              Institutional-Grade Compliance & Interoperability
+            <h2 className="text-title mb-6 text-glow-accent" dir="auto">
+              {t('home.institutionalCompliance')}
             </h2>
-            <p className="text-subtitle max-w-4xl mx-auto px-4">
-              Trusted by governments, institutions, and enterprises worldwide
+            <p className="text-subtitle max-w-4xl mx-auto px-4" dir="auto">
+              {t('home.trustedBy')}
             </p>
           </div>
           
@@ -271,11 +273,11 @@ function Home() {
       <section className="section-professional bg-primary">
         <div className="container-professional">
           <div className="content-professional mb-20">
-            <h2 className="text-title mb-6 text-glow-accent">
-              Four Pillars of Sovereign Infrastructure
+            <h2 className="text-title mb-6 text-glow-accent" dir="auto">
+              {t('home.fourPillars')}
             </h2>
-            <p className="text-subtitle max-w-5xl mx-auto px-4">
-              Core principles that enable universal liquidity with verifiable ESG and embedded compliance
+            <p className="text-subtitle max-w-5xl mx-auto px-4" dir="auto">
+              {t('home.fourPillarsDesc')}
             </p>
           </div>
 
@@ -299,11 +301,11 @@ function Home() {
       <section className="section-professional bg-elevated">
         <div className="container-professional">
           <div className="content-professional mb-20">
-            <h2 className="text-title mb-6 text-glow-accent">
-              ARCHT Market Indices
+            <h2 className="text-title mb-6 text-glow-accent" dir="auto">
+              {t('home.marketIndices')}
             </h2>
-            <p className="text-subtitle max-w-5xl mx-auto px-4">
-              Real-time tracking of tokenized asset performance across mining, agriculture, energy, and carbon markets
+            <p className="text-subtitle max-w-5xl mx-auto px-4" dir="auto">
+              {t('home.marketIndicesDesc')}
             </p>
           </div>
 
@@ -360,11 +362,11 @@ function Home() {
       <section className="section-professional bg-secondary">
         <div className="container-professional text-center">
           <div className="content-professional mb-20">
-            <h2 className="text-title mb-6 text-glow-accent">
-              Brazil Pilot Impact
+            <h2 className="text-title mb-6 text-glow-accent" dir="auto">
+              {t('home.brazilPilot')}
             </h2>
-            <p className="text-subtitle max-w-5xl mx-auto">
-              Projected fiscal impact: +US$200B/year; 5‑year regional value creation >US$1T
+            <p className="text-subtitle max-w-5xl mx-auto" dir="auto">
+              {t('home.brazilPilotDesc')}
             </p>
           </div>
 
@@ -373,14 +375,14 @@ function Home() {
               <div className="text-6xl md:text-8xl font-black text-white mb-6 number-glow-professional">
                 +US$200B
               </div>
-              <div className="text-subtitle text-gray-300">Annual Fiscal Impact</div>
+              <div className="text-subtitle text-gray-300" dir="auto">{t('home.annualFiscalImpact')}</div>
               <div className="mt-6 w-32 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mx-auto shadow-glow"></div>
             </div>
             <div className="text-center animate-fade-in-professional animate-stagger-2">
               <div className="text-6xl md:text-8xl font-black text-white mb-6 number-glow-professional">
                 >US$1T
               </div>
-              <div className="text-subtitle text-gray-300">5-Year Regional Value</div>
+              <div className="text-subtitle text-gray-300" dir="auto">{t('home.fiveYearValue')}</div>
               <div className="mt-6 w-32 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mx-auto shadow-glow"></div>
             </div>
           </div>
@@ -388,8 +390,8 @@ function Home() {
           {/* Professional ESG Impact Card */}
           <Card variant="elevated" className="max-w-5xl mx-auto mb-20 animate-scale-in-professional">
             <CardContent spacing="loose">
-              <h3 className="text-2xl font-bold mb-8 text-white">ESG Impact Metrics</h3>
-              <p className="text-gray-300 mb-12 text-lg">Real‑time MRV, fraud‑resistant certification, automated reporting</p>
+              <h3 className="text-2xl font-bold mb-8 text-white" dir="auto">{t('home.esgImpactMetrics')}</h3>
+              <p className="text-gray-300 mb-12 text-lg" dir="auto">{t('home.esgDescription')}</p>
               
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center group">
@@ -422,13 +424,16 @@ function Home() {
           <Button asChild size="xl" variant="primary" elevation="floating" className="animate-fade-in-professional animate-stagger-6">
             <Link to="/assets/brazil">
               <span className="flex items-center">
-                Explore Brazil Pilot
+                {t('home.exploreBrazilPilot')}
                 <ArrowRight className="ml-3 w-6 h-6" />
               </span>
             </Link>
           </Button>
         </div>
       </section>
+      
+      {/* Language Detection Notification */}
+      <LanguageNotification />
     </div>
   );
 }

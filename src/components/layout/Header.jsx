@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { LanguageSelector } from '../ui/LanguageSelector';
 
 export function Header() {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
@@ -59,7 +62,7 @@ export function Header() {
                     : 'text-gray-300 hover:bg-white/5 hover:text-white'
                 }`}
               >
-                Home
+                {t('nav.home')}
               </Link>
 
               {/* Protocol with Dropdown */}
@@ -72,7 +75,7 @@ export function Header() {
                       : 'text-gray-300 hover:bg-white/5 hover:text-white'
                   }`}
                 >
-                  Protocol
+                  {t('nav.protocol')}
                   <ChevronDown className="ml-2 w-4 h-4" />
                 </Link>
                 
@@ -120,7 +123,7 @@ export function Header() {
                       : 'text-gray-300 hover:bg-white/5 hover:text-white'
                   }`}
                 >
-                  Platform
+                  {t('nav.platform')}
                   <ChevronDown className="ml-2 w-4 h-4" />
                 </Link>
                 
@@ -168,7 +171,7 @@ export function Header() {
                       : 'text-gray-300 hover:bg-white/5 hover:text-white'
                   }`}
                 >
-                  Assets
+                  {t('nav.assets')}
                   <ChevronDown className="ml-2 w-4 h-4" />
                 </Link>
                 
@@ -201,7 +204,7 @@ export function Header() {
                     : 'text-gray-300 hover:bg-white/5 hover:text-white'
                 }`}
               >
-                Economics
+                {t('nav.economics')}
               </Link>
 
               {/* Contact */}
@@ -213,22 +216,23 @@ export function Header() {
                     : 'text-gray-300 hover:bg-white/5 hover:text-white'
                 }`}
               >
-                Contact
+                {t('nav.contact')}
               </Link>
             </div>
           </nav>
 
           {/* Action Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
+            <LanguageSelector />
             <Button variant="outline" size="default" asChild>
               <Link to="/onboarding">
-                Government Onboarding
+                {t('nav.governmentOnboarding')}
               </Link>
             </Button>
             
             <Button size="default" variant="primary" asChild>
               <Link to="/platform">
-                Explore Platform
+                {t('nav.explorePlatform')}
               </Link>
             </Button>
           </div>
@@ -256,7 +260,7 @@ export function Header() {
                   className="block px-4 py-3 rounded-xl text-sm sm:text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Home
+                  {t('nav.home')}
                 </Link>
 
                 {/* Protocol Section */}
@@ -266,7 +270,7 @@ export function Header() {
                     className="block px-4 py-3 rounded-xl text-sm sm:text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Protocol
+                    {t('nav.protocol')}
                   </Link>
                   <div className="ml-4 mt-2 space-y-1">
                     <Link
@@ -307,7 +311,7 @@ export function Header() {
                     className="block px-4 py-3 rounded-xl text-sm sm:text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Platform
+                    {t('nav.platform')}
                   </Link>
                   <div className="ml-4 mt-2 space-y-1">
                     <Link
@@ -348,7 +352,7 @@ export function Header() {
                     className="block px-4 py-3 rounded-xl text-sm sm:text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Assets
+                    {t('nav.assets')}
                   </Link>
                   <div className="ml-4 mt-2 space-y-1">
                     <Link
@@ -373,7 +377,7 @@ export function Header() {
                   className="block px-4 py-3 rounded-xl text-sm sm:text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Economics
+                  {t('nav.economics')}
                 </Link>
 
                 <Link
@@ -381,19 +385,22 @@ export function Header() {
                   className="block px-4 py-3 rounded-xl text-sm sm:text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Contact
+                  {t('nav.contact')}
                 </Link>
                 
                 <div className="pt-6 pb-4 border-t border-white/10 mt-6">
+                  <div className="mb-4">
+                    <LanguageSelector />
+                  </div>
                   <div className="space-y-3">
                     <Button variant="outline" size="default" className="w-full" asChild>
                       <Link to="/onboarding" onClick={() => setIsMenuOpen(false)}>
-                        Government Onboarding
+                        {t('nav.governmentOnboarding')}
                       </Link>
                     </Button>
                     <Button size="default" variant="primary" className="w-full" asChild>
                       <Link to="/platform" onClick={() => setIsMenuOpen(false)}>
-                        Explore Platform
+                        {t('nav.explorePlatform')}
                       </Link>
                     </Button>
                   </div>
