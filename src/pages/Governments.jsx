@@ -74,10 +74,10 @@ function Governments() {
               </Link>
             </Button>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 bg-gradient-to-r from-archetyp-400 via-archetyp-500 to-archetyp-600 bg-clip-text text-transparent tracking-tight">
               Government Solutions
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
               Sovereign-grade infrastructure for national asset tokenization, fiscal optimization, and economic sovereignty.
             </p>
             
@@ -97,17 +97,18 @@ function Governments() {
       </section>
 
       {/* Government Solutions */}
-      <section className="max-w-7xl mx-auto px-4 py-20">
+      <section className="py-20 bg-black/50">
+        <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-white">Sovereign Solutions</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Sovereign Solutions</h2>
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
             Comprehensive infrastructure for national asset tokenization and economic sovereignty.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {solutions.map((solution, index) => (
-            <Card key={index} className="bg-black/50 border border-gray-800 hover:border-gray-700 transition-all duration-300 group">
+            <Card key={index} className="bg-black/50 border border-gray-800 hover:border-cyan-400 transition-all duration-300 group">
               <CardContent className="p-8">
                 <div className={`${solution.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
                   {solution.icon}
@@ -117,6 +118,7 @@ function Governments() {
               </CardContent>
             </Card>
           ))}
+        </div>
         </div>
       </section>
 
