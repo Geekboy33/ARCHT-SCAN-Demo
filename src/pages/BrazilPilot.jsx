@@ -116,7 +116,9 @@ function BrazilPilot() {
     <div className="bg-black text-white min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-blue-500/10 to-yellow-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.03),transparent_50%)]"></div>
+        </div>
         <div className="relative max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <Button asChild variant="outline" className="mb-8">
@@ -130,7 +132,7 @@ function BrazilPilot() {
               <span className="text-4xl">🇧🇷</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-green-400 via-yellow-400 to-blue-400 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
               Brazil Pilot
             </h1>
             <p className="text-2xl text-gray-300 mb-4 font-semibold">

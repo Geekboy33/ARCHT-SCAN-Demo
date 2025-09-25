@@ -126,11 +126,11 @@ function Assets() {
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 bg-gradient-to-r from-archetyp-400 via-archetyp-500 to-archetyp-600 bg-clip-text text-transparent tracking-tight">
-            Asset Catalog
+            Assets
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Comprehensive catalog of tokenizable real-world assets across multiple categories and regions
+            Tokenizable real-world assets across multiple categories and regions
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">

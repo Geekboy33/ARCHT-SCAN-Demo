@@ -60,7 +60,9 @@ function ProtocolArchitecture() {
     <div className="bg-black text-white min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.03),transparent_50%)]"></div>
+        </div>
         <div className="relative max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <Button asChild variant="outline" className="mb-8">
@@ -70,7 +72,7 @@ function ProtocolArchitecture() {
               </Link>
             </Button>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
               Protocol Architecture
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
@@ -78,14 +80,14 @@ function ProtocolArchitecture() {
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">
-              <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-6 py-3 rounded-full border border-cyan-500/30">
-                <span className="text-cyan-400 font-semibold">6 Layers</span>
+              <div className="bg-gradient-to-r from-white/10 to-gray-300/10 px-6 py-3 rounded-full border border-white/20">
+                <span className="text-white font-semibold">6 Layers</span>
               </div>
-              <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 px-6 py-3 rounded-full border border-blue-500/30">
-                <span className="text-blue-400 font-semibold">Microservices</span>
+              <div className="bg-gradient-to-r from-gray-300/10 to-gray-500/10 px-6 py-3 rounded-full border border-gray-300/20">
+                <span className="text-gray-300 font-semibold">Microservices</span>
               </div>
-              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 px-6 py-3 rounded-full border border-purple-500/30">
-                <span className="text-purple-400 font-semibold">Cross-chain</span>
+              <div className="bg-gradient-to-r from-gray-500/10 to-gray-700/10 px-6 py-3 rounded-full border border-gray-500/20">
+                <span className="text-gray-400 font-semibold">Cross-chain</span>
               </div>
             </div>
           </div>

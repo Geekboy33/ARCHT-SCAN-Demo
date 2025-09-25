@@ -20,7 +20,7 @@ function Protocol() {
         "Forestry biomass & deforestation tracking",
         "Renewable siting & infrastructure monitoring"
       ],
-      color: "text-blue-400"
+      color: "text-white"
     },
     {
       number: 2,
@@ -33,7 +33,7 @@ function Protocol() {
         "Machine‑readable certificates",
         "Auditor signatures & time‑stamped ledgers"
       ],
-      color: "text-green-400"
+      color: "text-white"
     },
     {
       number: 3,
@@ -46,7 +46,7 @@ function Protocol() {
         "Tamper‑proof hardware",
         "Long‑term durability"
       ],
-      color: "text-purple-400"
+      color: "text-white"
     },
     {
       number: 4,
@@ -59,7 +59,7 @@ function Protocol() {
         "Homomorphic computation",
         "Sensitive data protection"
       ],
-      color: "text-yellow-400"
+      color: "text-white"
     },
     {
       number: 5,
@@ -72,7 +72,7 @@ function Protocol() {
         "Dynamic insurance pool",
         "Circuit breakers"
       ],
-      color: "text-cyan-400"
+      color: "text-white"
     },
     {
       number: 6,
@@ -85,7 +85,7 @@ function Protocol() {
         "Regulatory compliance alerts",
         "ESG metrics & reporting"
       ],
-      color: "text-orange-400"
+      color: "text-white"
     }
   ];
 
@@ -110,13 +110,15 @@ function Protocol() {
   return (
     <div className="bg-black text-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-black via-black to-black">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(6,182,212,0.1),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(34,211,238,0.08),transparent_50%)]"></div>
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.03),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.02),transparent_50%)]"></div>
+        </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-black mb-8 bg-gradient-to-r from-archetyp-400 via-archetyp-500 to-archetyp-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-black mb-8 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
               What Archetyp Is
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
@@ -129,9 +131,9 @@ function Protocol() {
           {/* Key Outcomes */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {keyOutcomes.map((outcome, index) => (
-              <Card key={index} className="bg-black border border-gray-800 hover:border-cyan-400 transition-all duration-300">
+              <Card key={index} className="bg-black/50 border border-gray-800 hover:border-white/30 transition-all duration-300">
                 <CardContent className="p-8 text-center">
-                  <div className="text-cyan-400 mb-4 flex justify-center">
+                  <div className="text-white mb-4 flex justify-center">
                     {outcome.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-4">{outcome.title}</h3>
@@ -173,7 +175,7 @@ function Protocol() {
                 <CardContent className="p-8">
                   <div className="flex flex-col lg:flex-row lg:items-center gap-8">
                     <div className="flex-shrink-0">
-                      <div className={`w-16 h-16 rounded-lg bg-gray-800 flex items-center justify-center ${layer.color}`}>
+                      <div className="w-16 h-16 rounded-lg bg-gradient-to-r from-white/10 to-gray-300/10 flex items-center justify-center text-white">
                         {layer.icon}
                       </div>
                     </div>
@@ -189,7 +191,7 @@ function Protocol() {
                       <div className="grid md:grid-cols-2 gap-4">
                         {layer.details.map((detail, detailIndex) => (
                           <div key={detailIndex} className="flex items-center gap-3">
-                            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                            <CheckCircle className="w-4 h-4 text-white flex-shrink-0" />
                             <span className="text-gray-300 text-sm">{detail}</span>
                           </div>
                         ))}
@@ -214,9 +216,9 @@ function Protocol() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-black/50 border border-gray-800 hover:border-cyan-400 transition-all duration-300 group">
+            <Card className="bg-black/50 border border-gray-800 hover:border-white/30 transition-all duration-300 group">
               <CardContent className="p-8">
-                <div className="text-cyan-400 mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-white mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Layers className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold mb-4">Modular Architecture</h3>
@@ -226,9 +228,9 @@ function Protocol() {
               </CardContent>
             </Card>
 
-            <Card className="bg-black/50 border border-gray-800 hover:border-cyan-400 transition-all duration-300 group">
+            <Card className="bg-black/50 border border-gray-800 hover:border-white/30 transition-all duration-300 group">
               <CardContent className="p-8">
-                <div className="text-cyan-400 mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-white mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Cpu className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold mb-4">Fail-Safe Design</h3>
@@ -238,9 +240,9 @@ function Protocol() {
               </CardContent>
             </Card>
 
-            <Card className="bg-black/50 border border-gray-800 hover:border-cyan-400 transition-all duration-300 group">
+            <Card className="bg-black/50 border border-gray-800 hover:border-white/30 transition-all duration-300 group">
               <CardContent className="p-8">
-                <div className="text-cyan-400 mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-white mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Database className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold mb-4">Institutional Grade</h3>
