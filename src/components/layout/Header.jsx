@@ -130,8 +130,8 @@ export function Header() {
                       <button
                         className={`flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
                           isActive(item.path)
-                            ? 'bg-white/10 text-white shadow-professional'
-                            : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                            ? 'bg-white/[.10] text-white shadow-professional'
+                            : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
                         }`}
                         onClick={() => handleDropdownToggle(item.name)}
                       >
@@ -142,7 +142,7 @@ export function Header() {
                       </button>
                       
                       {activeDropdown === item.name && (
-                        <div className="absolute top-full left-0 mt-2 w-80 bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-floating z-50 overflow-hidden">
+                        <div className="absolute top-full left-0 mt-2 w-80 bg-black/95 backdrop-blur-xl border border-white/[.10] rounded-2xl shadow-floating z-50 overflow-hidden">
                           <div className="p-2">
                             {item.dropdown.map((subItem) => (
                               <Link
@@ -150,8 +150,8 @@ export function Header() {
                                 to={subItem.path}
                                 className={`block p-4 rounded-xl transition-all duration-200 group ${
                                   isActive(subItem.path)
-                                    ? 'bg-white/10 text-white'
-                                    : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                                    ? 'bg-white/[.10] text-white'
+                                    : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
                                 }`}
                                 onClick={handleLinkClick}
                               >
@@ -172,8 +172,8 @@ export function Header() {
                       to={item.path}
                       className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
                         isActive(item.path)
-                          ? 'bg-white/10 text-white shadow-professional'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                          ? 'bg-white/[.10] text-white shadow-professional'
+                          : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
                       }`}
                       onClick={handleLinkClick}
                     >
@@ -274,8 +274,8 @@ export function Header() {
                       <button
                         className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
                           isActive(item.path)
-                            ? 'bg-white/10 text-white'
-                            : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                            ? 'bg-white/[.10] text-white'
+                            : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
                         }`}
                         onClick={() => handleDropdownToggle(item.name)}
                       >
@@ -292,8 +292,8 @@ export function Header() {
                               to={subItem.path}
                               className={`block px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
                                 isActive(subItem.path)
-                                  ? 'bg-white/10 text-white'
-                                  : 'text-gray-400 hover:bg-white/5 hover:text-white'
+                                  ? 'bg-white/[.10] text-white'
+                                  : 'text-gray-400 hover:bg-white/[.05] hover:text-white'
                               }`}
                               onClick={handleLinkClick}
                             >
@@ -309,8 +309,8 @@ export function Header() {
                       to={item.path}
                       className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
                         isActive(item.path)
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                          ? 'bg-white/[.10] text-white'
+                          : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
                       }`}
                       onClick={handleLinkClick}
                     >
@@ -320,7 +320,7 @@ export function Header() {
                 </div>
               ))}
               
-              <div className="pt-6 pb-4 border-t border-white/10 mt-6">
+              <div className="pt-6 pb-4 border-t border-white/[.10] mt-6">
                 <div className="space-y-3">
                   <Button variant="outline" size="default" className="w-full" asChild>
                     <Link to="/onboarding" onClick={handleLinkClick}>
