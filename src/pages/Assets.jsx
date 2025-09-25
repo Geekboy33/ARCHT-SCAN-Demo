@@ -110,7 +110,7 @@ function Assets() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-auto">
+    <div className="bg-black text-white">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-black">

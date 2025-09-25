@@ -155,7 +155,7 @@ function Economics() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-auto">
+    <div className="bg-black text-white">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-blue-500/10 to-purple-500/10" />

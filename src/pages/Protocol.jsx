@@ -108,7 +108,7 @@ function Protocol() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-auto">
+    <div className="bg-black text-white">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-black via-black to-black">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(6,182,212,0.1),transparent_50%)]"></div>
