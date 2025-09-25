@@ -309,10 +309,10 @@ function ARCHTScan() {
   }
 
   return (
-    <div className="bg-black text-white min-h-screen overflow-x-hidden">
+    <div className="bg-black text-white min-h-screen overflow-x-hidden pt-0">
       {/* Sidebar avanzado */}
       {!sidebarCollapsed && (
-        <div className="fixed left-0 top-0 h-full w-80 bg-gray-900/95 backdrop-blur-md border-r border-gray-800 z-50 overflow-y-auto">
+        <div className="fixed left-0 top-16 h-[calc(100vh-4rem)] w-80 bg-gray-900/95 backdrop-blur-md border-r border-gray-800 z-40 overflow-y-auto">
           <div className="p-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-semibold text-white">ARCHT SCAN Demo</h2>
@@ -343,7 +343,7 @@ function ARCHTScan() {
       )}
 
       {/* Header del ARCHT SCAN optimizado */}
-      <div className={`sticky top-0 z-40 bg-black/95 backdrop-blur-md border-b border-gray-800 ${sidebarCollapsed ? '' : 'ml-80'}`}>
+      <div className={`sticky top-16 z-30 bg-black/95 backdrop-blur-md border-b border-gray-800 ${sidebarCollapsed ? '' : 'ml-80'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
@@ -386,6 +386,7 @@ function ARCHTScan() {
       </div>
 
       <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ${sidebarCollapsed ? '' : 'ml-80'} overflow-y-auto`}>
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ${sidebarCollapsed ? '' : 'ml-80'} min-h-screen`}>
         {/* System Health Overview optimizado */}
         <div className="mb-8">
           <h2 className="text-hierarchy-3 font-display text-glow-white text-contrast-high mb-6 animate-fade-in-up">

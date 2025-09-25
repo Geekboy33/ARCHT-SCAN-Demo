@@ -15,6 +15,7 @@ import LegalVault from './pages/LegalVault';
 import SkyLinkBridge from './pages/SkyLinkBridge';
 import MRVESG from './pages/MRVESG';
 import PlatformDashboards from './pages/PlatformDashboards';
+import ARCHTScan from './pages/ARCHTScan';
 import AssetExplorer from './pages/AssetExplorer';
 import Economics from './pages/Economics';
 
@@ -49,6 +50,7 @@ function App() {
         <Route path="/protocol/mrv-esg" element={<Layout><MRVESG /></Layout>} />
         
         {/* Subpáginas de Platform */}
+        <Route path="/platform/archt-scan" element={<Layout><ARCHTScan /></Layout>} />
         <Route path="/platform/dashboards" element={<Layout><PlatformDashboards /></Layout>} />
         <Route path="/platform/indices" element={<Layout><TestPage title="Platform Indices" description="AMI/AAI/ACI/IPRT indices" /></Layout>} />
         <Route path="/platform/data-api" element={<Layout><TestPage title="Data & API" description="Data feeds and API access" /></Layout>} />

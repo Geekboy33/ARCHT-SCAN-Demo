@@ -63,6 +63,7 @@ export function Header() {
       name: 'Platform', 
       path: '/platform',
       dropdown: [
+        { name: 'ARCHT SCAN', path: '/platform/archt-scan' },
         { name: 'Dashboards', path: '/platform/dashboards' },
         { name: 'Indices', path: '/platform/indices' },
         { name: 'Data & API', path: '/platform/data-api' }
