@@ -140,7 +140,6 @@ export function Header() {
                       )}
                     </div>
                   ) : (
-                  {item.dropdown ? (
                     <div
                       className="relative"
                       onMouseEnter={() => setActiveDropdown(item.name)}
@@ -191,6 +190,7 @@ export function Header() {
                           </div>
                         </div>
                       )}
+                    </div>
                   )}
                 </div>
               ))}
