@@ -18,6 +18,7 @@ import PlatformDashboards from './pages/PlatformDashboards';
 import ARCHTScan from './pages/ARCHTScan';
 import AssetExplorer from './pages/AssetExplorer';
 import Economics from './pages/Economics';
+import BrazilPilot from './pages/BrazilPilot';
 
 function App() {
   return (
@@ -56,7 +57,7 @@ function App() {
         <Route path="/platform/data-api" element={<Layout><TestPage title="Data & API" description="Data feeds and API access" /></Layout>} />
         
         {/* Subpáginas de Assets */}
-        <Route path="/assets/brazil" element={<Layout><TestPage title="Brazil Pilot" description="Brazil pilot project details" /></Layout>} />
+        <Route path="/assets/brazil" element={<Layout><BrazilPilot /></Layout>} />
         <Route path="/assets/explorer" element={<Layout><AssetExplorer /></Layout>} />
         
         {/* Ruta por defecto */}
