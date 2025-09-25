@@ -228,3 +228,7 @@ function PlatformDashboards() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default PlatformDashboards;

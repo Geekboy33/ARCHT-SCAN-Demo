@@ -150,3 +150,7 @@ function MRVESG() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default MRVESG;

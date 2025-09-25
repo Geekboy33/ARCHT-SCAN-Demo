@@ -234,3 +234,7 @@ function ProtocolArchitecture() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default ProtocolArchitecture;

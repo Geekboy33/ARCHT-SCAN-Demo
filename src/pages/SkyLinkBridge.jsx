@@ -281,3 +281,7 @@ function SkyLinkBridge() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default SkyLinkBridge;

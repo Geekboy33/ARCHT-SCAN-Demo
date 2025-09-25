@@ -189,8 +189,9 @@ function Economics() {
           </div>
         </div>
       </section>
+
       {/* Design Principles */}
-      <div className="max-w-7xl mx-auto px-4 py-20">
+      <section className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">Design Principles</h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -209,10 +210,10 @@ function Economics() {
             </Card>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Initial Allocation */}
-      <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 py-20">
+      <section className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-white">Initial Allocation & Vesting</h2>
@@ -246,10 +247,10 @@ function Economics() {
             </table>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* veARCHT Staking */}
-      <div className="max-w-7xl mx-auto px-4 py-20">
+      <section className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">veARCHT Staking & Voting</h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -271,10 +272,10 @@ function Economics() {
             </Card>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Geographic Halving */}
-      <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 py-20">
+      <section className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-white">Geographic Halving Mechanism</h2>
@@ -296,10 +297,10 @@ function Economics() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* RWA Sub-Token Economy */}
-      <div className="max-w-7xl mx-auto px-4 py-20">
+      <section className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">RWA Sub-Token Economy</h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -320,10 +321,10 @@ function Economics() {
             </Card>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Deflationary Mechanics */}
-      <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 py-20">
+      <section className="bg-gradient-to-r from-green-500/10 to-blue-500/10 py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-white">Deflationary & Value Accrual</h2>
@@ -344,10 +345,10 @@ function Economics() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Key Value Drivers */}
-      <div className="max-w-7xl mx-auto px-4 py-20">
+      <section className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">Key Value Drivers</h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -404,10 +405,10 @@ function Economics() {
             </CardContent>
           </Card>
         </div>
-      </div>
+      </section>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 py-20">
+      <section className="bg-gradient-to-r from-green-500/10 to-blue-500/10 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6 text-white">Join the ARCHT Economy</h2>
           <p className="text-xl text-gray-300 mb-8">
@@ -422,5 +423,9 @@ function Economics() {
             </Button>
           </div>
         </div>
-      </div>
+      </section>
     </div>
+  );
+}
+
+export default Economics;
