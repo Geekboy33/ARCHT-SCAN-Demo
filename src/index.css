@@ -337,13 +337,6 @@
     }
   }
   
-        0 0 20px rgba(255, 255, 255, 0.8),
-        0 0 40px rgba(255, 255, 255, 0.5),
-        0 0 60px rgba(255, 255, 255, 0.3),
-        0 0 80px rgba(255, 255, 255, 0.2),
-    box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
-  }
-  
   .status-secure {
     @apply bg-cyan-500/20 text-cyan-400 border border-cyan-500/30;
     @apply px-3 py-1 rounded-full text-xs font-semibold;
