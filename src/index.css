@@ -312,8 +312,9 @@
   .number-glow-professional {
     @apply number-professional;
     text-shadow: 
-      0 0 10px rgba(255, 255, 255, 0.4),
-      0 0 20px rgba(255, 255, 255, 0.2),
+      0 0 15px rgba(255, 255, 255, 0.8),
+      0 0 30px rgba(255, 255, 255, 0.6),
+      0 0 45px rgba(255, 255, 255, 0.4),
       0 2px 4px rgba(0, 0, 0, 0.6);
     animation: numberGlowProfessional 3s ease-in-out infinite alternate;
   }
@@ -321,14 +322,17 @@
   @keyframes numberGlowProfessional {
     0% {
       text-shadow: 
-        0 0 10px rgba(255, 255, 255, 0.4),
-        0 0 20px rgba(255, 255, 255, 0.2),
+        0 0 15px rgba(255, 255, 255, 0.8),
+        0 0 30px rgba(255, 255, 255, 0.6),
+        0 0 45px rgba(255, 255, 255, 0.4),
         0 2px 4px rgba(0, 0, 0, 0.6);
     }
     100% {
       text-shadow: 
-        0 0 15px rgba(255, 255, 255, 0.6),
-        0 0 30px rgba(255, 255, 255, 0.3),
+        0 0 25px rgba(255, 255, 255, 1.0),
+        0 0 50px rgba(255, 255, 255, 0.8),
+        0 0 75px rgba(255, 255, 255, 0.6),
+        0 0 100px rgba(255, 255, 255, 0.4),
         0 2px 4px rgba(0, 0, 0, 0.6);
     }
   }
@@ -394,9 +398,10 @@
   /* Professional Text Effects */
   .text-glow-professional {
     text-shadow: 
-      0 0 10px rgba(255, 255, 255, 0.3),
-      0 0 20px rgba(255, 255, 255, 0.2),
-      0 0 30px rgba(255, 255, 255, 0.1);
+      0 0 20px rgba(255, 255, 255, 0.8),
+      0 0 40px rgba(255, 255, 255, 0.6),
+      0 0 60px rgba(255, 255, 255, 0.4),
+      0 0 80px rgba(255, 255, 255, 0.2);
   }
   
   .text-glow-accent {

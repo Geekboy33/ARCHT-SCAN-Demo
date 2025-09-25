@@ -144,7 +144,7 @@ function Home() {
           </div>
           
           {/* Hero Title - Professional Typography */}
-          <h1 className="responsive-text-display font-black mb-12 animate-fade-in-professional animate-stagger-1 text-glow-professional">
+          <h1 className="responsive-text-display font-black mb-12 animate-fade-in-professional animate-stagger-1 text-glow-professional bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
             ARCHT
           </h1>
           
