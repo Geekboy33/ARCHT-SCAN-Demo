@@ -14,116 +14,60 @@ import {
   Minimize2, Menu, X
 } from 'lucide-react';
 import { getAllAssets } from '../data/assets';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
+import { Card, CardContent, CardHeader, CardTitle, MetricCard } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import AnimatedNumber from '../components/AnimatedNumber';
 
-// Memoized components para optimización
+// Professional System Health Component
 const SystemHealthCard = memo(({ icon: Icon, title, value, subtitle, progress, status, className = "" }) => (
-  <Card className={`bg-gradient-to-br from-gray-900 to-black border border-gray-800 hover:border-cyan-400/50 transition-all duration-300 group hover:scale-105 ${className}`}>
-    <CardContent className="p-6">
-      <div className="flex items-center justify-between mb-4">
-        <div className="p-3 bg-gradient-to-r from-cyan-500/20 to-blue-600/20 rounded-xl border border-cyan-500/30">
-          <Icon className="w-6 h-6 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
-        </div>
-        <div className={`px-3 py-1 rounded-full text-xs font-semibold border ${
-          status === 'live' ? 'bg-green-500/20 text-green-400 border-green-500/30' :
-          status === 'secure' ? 'bg-blue-500/20 text-blue-400 border-blue-500/30' :
-          status === 'compliant' ? 'bg-purple-500/20 text-purple-400 border-purple-500/30' :
-          'bg-cyan-500/20 text-cyan-400 border-cyan-500/30'
-        }`}>
-          {title}
-        </div>
-      </div>
-      <div className="text-3xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
-        <AnimatedNumber 
-          value={typeof value === 'string' ? parseFloat(value.replace(/[^\d.-]/g, '')) : value} 
-          duration={800}
-          decimals={typeof value === 'string' && value.includes('%') ? 1 : 0}
-          suffix={typeof value === 'string' && value.includes('%') ? '%' : ''}
-          className="font-mono"
-        />
-      </div>
-      <div className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">{subtitle}</div>
-      {progress && (
-        <div className="mt-3 w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-          <div className={`h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full transition-all duration-1000 ${progress}`}></div>
-        </div>
-      )}
-    </CardContent>
-  </Card>
+  <MetricCard
+    title={title}
+    value={value}
+    subtitle={subtitle}
+    icon={Icon}
+    trend={{ direction: 'up', value: progress }}
+    className={`hover-professional ${className}`}
+  />
 ));
 
-const MetricCard = memo(({ metric, value, trend, status, threshold, icon: Icon }) => (
-  <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700 hover:border-cyan-400/50 transition-all duration-300 hover:bg-gray-800/70 group">
-    <div className="flex items-center justify-between mb-3">
-      <div className="flex items-center space-x-2">
-        <Icon className="w-4 h-4 text-cyan-400" />
-        <h4 className="text-sm text-gray-300 group-hover:text-white transition-colors">{metric}</h4>
-      </div>
-      <div className={`flex items-center text-xs font-semibold ${
-        status === 'excellent' ? 'text-green-400' : 
-        status === 'good' ? 'text-cyan-400' : 
-        'text-gray-400'
-      }`}>
-        {trend === 'up' ? <TrendingUp className="w-3 h-3 mr-1" /> : <TrendingDown className="w-3 h-3 mr-1" />}
-        {trend}
-      </div>
-    </div>
-    <div className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
-      <AnimatedNumber 
-        value={value} 
-        duration={600}
-        decimals={0}
-        className="font-mono"
-      />
-    </div>
-    <div className="w-full bg-gray-700 rounded-full h-1.5">
-      <div 
-        className={`h-1.5 rounded-full transition-all duration-500 ${
-          value >= threshold ? 'bg-gradient-to-r from-cyan-400 to-blue-500' : 'bg-gradient-to-r from-gray-500 to-gray-400'
-        }`}
-        style={{ width: `${Math.min(100, (value / threshold) * 100)}%` }}
-      ></div>
-    </div>
-  </div>
-));
-
+// Professional Asset Card Component
 const AssetCard = memo(({ asset, index }) => {
   const getCategoryColor = (category) => {
     const colors = {
-      strategic_minerals: 'from-yellow-500/20 to-orange-500/20 border-yellow-500/30',
-      energy: 'from-blue-500/20 to-cyan-500/20 border-blue-500/30',
-      agriculture: 'from-green-500/20 to-emerald-500/20 border-green-500/30',
-      natural_resources: 'from-emerald-500/20 to-teal-500/20 border-emerald-500/30',
-      environmental_esg: 'from-teal-500/20 to-green-500/20 border-teal-500/30',
-      financial_instruments: 'from-purple-500/20 to-indigo-500/20 border-purple-500/30',
-      infrastructure: 'from-orange-500/20 to-red-500/20 border-orange-500/30',
-      social: 'from-pink-500/20 to-rose-500/20 border-pink-500/30',
-      gemstones: 'from-rose-500/20 to-pink-500/20 border-rose-500/30'
+      strategic_minerals: 'from-archetyp-500/10 to-archetyp-600/10 border-archetyp-500/20',
+      energy: 'from-archetyp-400/10 to-archetyp-500/10 border-archetyp-400/20',
+      agriculture: 'from-archetyp-300/10 to-archetyp-400/10 border-archetyp-300/20',
+      natural_resources: 'from-archetyp-500/10 to-archetyp-600/10 border-archetyp-500/20',
+      environmental_esg: 'from-archetyp-400/10 to-archetyp-500/10 border-archetyp-400/20',
+      financial_instruments: 'from-archetyp-300/10 to-archetyp-400/10 border-archetyp-300/20',
+      infrastructure: 'from-archetyp-500/10 to-archetyp-600/10 border-archetyp-500/20',
+      social: 'from-archetyp-400/10 to-archetyp-500/10 border-archetyp-400/20',
+      gemstones: 'from-archetyp-300/10 to-archetyp-400/10 border-archetyp-300/20'
     };
-    return colors[category] || 'from-gray-500/20 to-gray-600/20 border-gray-500/30';
+    return colors[category] || 'from-white/5 to-white/10 border-white/10';
   };
 
   return (
-    <Card className={`bg-gradient-to-br ${getCategoryColor(asset.category)} border hover:scale-105 transition-all duration-300 group`}>
-      <CardContent className="p-4">
-        <div className="flex items-center justify-between mb-3">
-          <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg">
+    <Card className={`bg-gradient-to-br ${getCategoryColor(asset.category)} border hover-professional group`}>
+      <CardContent spacing="default">
+        <div className="flex items-center justify-between mb-4">
+          <div className="w-12 h-12 bg-gradient-to-r from-archetyp-500 to-archetyp-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-glow transition-all duration-300">
             <span className="text-white font-bold text-sm">{asset.symbol?.charAt(0)}</span>
           </div>
-          <div className="text-xs text-gray-400 bg-black/30 px-2 py-1 rounded-full">
+          <div className="text-xs text-gray-400 bg-white/10 px-3 py-1 rounded-full border border-white/20">
             {asset.unit}
           </div>
         </div>
         
-        <h4 className="font-semibold text-white mb-1 group-hover:text-cyan-300 transition-colors">{asset.name}</h4>
-        <p className="text-xs text-gray-400 mb-3">{asset.symbol}</p>
+        <h4 className="font-semibold text-white mb-2 group-hover:text-cyan-300 transition-colors">
+          {asset.name}
+        </h4>
+        <p className="text-xs text-gray-400 mb-4 font-mono">{asset.symbol}</p>
         
-        <div className="space-y-2">
+        <div className="space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs text-gray-400">Price:</span>
-            <span className="text-sm font-semibold text-white">
+            <span className="text-sm font-bold text-white number-professional">
               <AnimatedNumber 
                 value={asset.currentPrice || asset.price} 
                 duration={400}
@@ -133,10 +77,11 @@ const AssetCard = memo(({ asset, index }) => {
               />
             </span>
           </div>
+          
           <div className="flex items-center justify-between">
             <span className="text-xs text-gray-400">24h:</span>
             <div className={`flex items-center text-sm font-semibold ${
-              (asset.change24h || asset.change) >= 0 ? 'text-green-400' : 'text-red-400'
+              (asset.change24h || asset.change) >= 0 ? 'text-success-400' : 'text-error-400'
             }`}>
               {(asset.change24h || asset.change) >= 0 ? (
                 <TrendingUp className="w-3 h-3 mr-1" />
@@ -146,9 +91,10 @@ const AssetCard = memo(({ asset, index }) => {
               {(asset.change24h || asset.change) >= 0 ? '+' : ''}{(asset.change24h || asset.change)?.toFixed(1)}%
             </div>
           </div>
+          
           <div className="flex items-center justify-between">
             <span className="text-xs text-gray-400">Country:</span>
-            <span className="text-xs text-white">{asset.country}</span>
+            <span className="text-xs text-white font-medium">{asset.country}</span>
           </div>
         </div>
       </CardContent>
@@ -157,25 +103,22 @@ const AssetCard = memo(({ asset, index }) => {
 });
 
 function ARCHTScan() {
-  // Estados principales optimizados
+  // Professional state management
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [realTimeData, setRealTimeData] = useState(true);
   const [isScanning, setIsScanning] = useState(false);
   const [scanProgress, setScanProgress] = useState(0);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedRegion, setSelectedRegion] = useState('all');
   const [selectedCountry, setSelectedCountry] = useState('all');
   const [sortBy, setSortBy] = useState('name');
   const [sortOrder, setSortOrder] = useState('asc');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(12);
   const [viewMode, setViewMode] = useState('grid');
-  const [showHiddenAssets, setShowHiddenAssets] = useState(false);
 
-  // Datos del sistema mejorados
+  // Professional system health data
   const [systemHealth] = useState({
     activeScans: 247,
     threatsDetected: 3,
@@ -187,7 +130,7 @@ function ARCHTScan() {
     totalVolume: 0
   });
 
-  // Cargar activos con manejo de errores
+  // Load assets with error handling
   const allAssets = useMemo(() => {
     try {
       return getAllAssets();
@@ -197,16 +140,7 @@ function ARCHTScan() {
     }
   }, []);
 
-  // Actualizar estadísticas del sistema
-  useEffect(() => {
-    if (allAssets.length > 0) {
-      const totalVolume = allAssets.reduce((sum, asset) => sum + (asset.volume24h || 0), 0);
-      systemHealth.totalAssets = allAssets.length;
-      systemHealth.totalVolume = totalVolume;
-    }
-  }, [allAssets]);
-
-  // Filtros y búsqueda optimizados
+  // Professional filtering and search
   const filteredAssets = useMemo(() => {
     let assets = allAssets;
 
@@ -226,7 +160,7 @@ function ARCHTScan() {
       assets = assets.filter(asset => asset.country === selectedCountry);
     }
 
-    // Ordenamiento
+    // Professional sorting
     assets.sort((a, b) => {
       let aValue = a[sortBy];
       let bValue = b[sortBy];
@@ -236,24 +170,21 @@ function ARCHTScan() {
         bValue = bValue.toLowerCase();
       }
       
-      if (sortOrder === 'asc') {
-        return aValue > bValue ? 1 : -1;
-      } else {
-        return aValue < bValue ? 1 : -1;
-      }
+      return sortOrder === 'asc' ? 
+        (aValue > bValue ? 1 : -1) : 
+        (aValue < bValue ? 1 : -1);
     });
 
     return assets;
   }, [allAssets, searchTerm, selectedCategory, selectedCountry, sortBy, sortOrder]);
 
-  // Paginación optimizada
+  // Professional pagination
   const paginatedAssets = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    return filteredAssets.slice(startIndex, endIndex);
+    return filteredAssets.slice(startIndex, startIndex + itemsPerPage);
   }, [filteredAssets, currentPage, itemsPerPage]);
 
-  // Estadísticas calculadas
+  // Professional statistics
   const stats = useMemo(() => {
     const totalMarketCap = allAssets.reduce((sum, asset) => sum + (asset.marketCap || 0), 0);
     const totalVolume = allAssets.reduce((sum, asset) => sum + (asset.volume24h || 0), 0);
@@ -262,8 +193,8 @@ function ARCHTScan() {
     const countries = new Set(allAssets.map(asset => asset.country)).size;
 
     return {
-      totalMarketCap: totalMarketCap / 1000000000, // En billones
-      totalVolume: totalVolume / 1000000, // En millones
+      totalMarketCap: totalMarketCap / 1000000000,
+      totalVolume: totalVolume / 1000000,
       avgChange,
       categories,
       countries,
@@ -271,13 +202,11 @@ function ARCHTScan() {
     };
   }, [allAssets]);
 
-  // Handlers optimizados
+  // Professional handlers
   const handleRefreshData = useCallback(() => {
     setIsLoading(true);
     setError(null);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1200);
+    setTimeout(() => setIsLoading(false), 1200);
   }, []);
 
   const handleStartScan = useCallback(() => {
@@ -296,12 +225,7 @@ function ARCHTScan() {
     }, 200);
   }, []);
 
-  const handleStopScan = useCallback(() => {
-    setIsScanning(false);
-    setScanProgress(0);
-  }, []);
-
-  // Datos para gráficos
+  // Professional chart data
   const chartData = useMemo(() => {
     const categoryData = {};
     allAssets.forEach(asset => {
@@ -315,23 +239,19 @@ function ARCHTScan() {
 
     return Object.values(categoryData).map((item, index) => ({
       ...item,
-      value: item.value / 1000000000, // En billones
-      color: [
-        '#06b6d4', '#10b981', '#f59e0b', '#ef4444', 
-        '#8b5cf6', '#ec4899', '#f97316', '#84cc16'
-      ][index % 8]
+      value: item.value / 1000000000,
+      color: '#06b6d4' // Professional single color
     }));
   }, [allAssets]);
 
-  // Error boundary
   if (error) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        <Card className="bg-red-900/20 border border-red-500/30 max-w-md">
-          <CardContent className="p-8 text-center">
-            <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
-            <h1 className="text-xl font-bold text-red-400 mb-4">Error Loading ARCHT SCAN</h1>
-            <p className="text-gray-300 mb-6">{error}</p>
+      <div className="min-h-screen bg-primary text-white flex items-center justify-center">
+        <Card variant="elevated" className="max-w-md">
+          <CardContent spacing="loose" className="text-center">
+            <AlertCircle className="w-16 h-16 text-error-400 mx-auto mb-6" />
+            <h1 className="text-2xl font-bold text-error-400 mb-4">Error Loading ARCHT SCAN</h1>
+            <p className="text-gray-300 mb-8">{error}</p>
             <Button onClick={handleRefreshData} variant="outline">
               <RefreshCw className="w-4 h-4 mr-2" />
               Retry
@@ -343,94 +263,32 @@ function ARCHTScan() {
   }
 
   return (
-    <div className="bg-black text-white min-h-screen">
-      {/* Sidebar Modal */}
-      {sidebarOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setSidebarOpen(false)} />
-          <div className="fixed right-0 top-0 h-full w-80 bg-gray-900/95 backdrop-blur-md border-l border-gray-800 overflow-y-auto">
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-lg font-semibold text-white">ARCHT SCAN</h2>
-                <Button variant="ghost" size="sm" onClick={() => setSidebarOpen(false)}>
-                  <X className="w-4 h-4" />
-                </Button>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
-                  <h3 className="text-sm font-semibold text-white mb-3">Quick Stats</h3>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span className="text-xs text-gray-400">Total Assets</span>
-                      <span className="text-sm font-bold text-white">{stats.totalMarketCap.toFixed(1)}B</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-xs text-gray-400">Categories</span>
-                      <span className="text-sm font-bold text-cyan-400">{stats.categories}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-xs text-gray-400">Countries</span>
-                      <span className="text-sm font-bold text-white">{stats.countries}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
-                  <h3 className="text-sm font-semibold text-white mb-3">System Status</h3>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span className="text-xs text-gray-400">Uptime</span>
-                      <span className="text-sm font-bold text-green-400">{systemHealth.uptime}%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-xs text-gray-400">Latency</span>
-                      <span className="text-sm font-bold text-white">{systemHealth.latency}ms</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-xs text-gray-400">Compliance</span>
-                      <span className="text-sm font-bold text-purple-400">{systemHealth.complianceScore}%</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Header Principal */}
-      <div className="sticky top-16 z-30 bg-black/95 backdrop-blur-md border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">A</span>
+    <div className="bg-primary text-white min-h-screen">
+      {/* Professional Header */}
+      <div className="sticky top-20 z-30 bg-black/95 backdrop-blur-xl border-b border-white/10 shadow-professional">
+        <div className="container-professional">
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center space-x-6">
+              <div className="w-12 h-12 bg-gradient-to-r from-archetyp-400 to-archetyp-500 rounded-2xl flex items-center justify-center shadow-glow">
+                <span className="text-white font-black text-xl">A</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-white">
+                <h1 className="text-3xl font-bold text-white">
                   ARCHT SCAN
                 </h1>
-                <p className="text-sm text-gray-400 flex items-center gap-2">
-                  <div className={`w-2 h-2 rounded-full animate-pulse ${realTimeData ? 'bg-green-400' : 'bg-gray-400'}`}></div>
+                <p className="text-sm text-gray-400 flex items-center gap-3 mt-1">
+                  <div className={`w-2 h-2 rounded-full animate-pulse ${realTimeData ? 'bg-success-400' : 'bg-gray-400'}`}></div>
                   {realTimeData ? 'Live Monitoring' : 'Paused'} • Advanced Asset Analysis
-                  <span className="text-xs text-gray-500 ml-2">Last update: {systemHealth.lastUpdate}</span>
+                  <span className="text-xs text-gray-500 ml-4">
+                    Last update: {systemHealth.lastUpdate}
+                  </span>
                 </p>
               </div>
             </div>
             
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-4">
               <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setSidebarOpen(true)}
-                className="lg:hidden"
-              >
-                <Menu className="w-4 h-4" />
-              </Button>
-              
-              <Button
-                variant={realTimeData ? "default" : "outline"}
+                variant={realTimeData ? "accent" : "outline"}
                 size="sm"
                 onClick={() => setRealTimeData(!realTimeData)}
                 className="hidden sm:flex items-center space-x-2"
@@ -440,9 +298,9 @@ function ARCHTScan() {
               </Button>
               
               <Button
-                variant={isScanning ? "destructive" : "default"}
+                variant={isScanning ? "destructive" : "primary"}
                 size="sm"
-                onClick={isScanning ? handleStopScan : handleStartScan}
+                onClick={isScanning ? () => setIsScanning(false) : handleStartScan}
                 className="flex items-center space-x-2"
               >
                 {isScanning ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
@@ -457,104 +315,105 @@ function ARCHTScan() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* System Health Overview */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">System Health Overview</h2>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-sm text-green-400 font-medium">All Systems Operational</span>
+      <div className="container-professional py-12 space-professional">
+        {/* Professional System Health */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-3xl font-bold text-white">System Health Overview</h2>
+            <div className="flex items-center space-x-3">
+              <div className="w-3 h-3 bg-success-400 rounded-full animate-pulse shadow-glow"></div>
+              <span className="text-sm text-success-400 font-semibold">All Systems Operational</span>
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid-metrics">
             <SystemHealthCard
               icon={Activity}
-              title="Live"
+              title="Active Scans"
               value={systemHealth.activeScans}
-              subtitle="Active Scans"
-              progress="w-4/5"
+              subtitle="Real-time monitoring"
+              progress="85%"
               status="live"
             />
             <SystemHealthCard
               icon={Shield}
-              title="Secure"
+              title="Security Status"
               value={systemHealth.threatsDetected}
-              subtitle="Threats Detected"
-              progress="w-1/4"
+              subtitle="Threats detected"
+              progress="98%"
               status="secure"
             />
             <SystemHealthCard
               icon={CheckCircle}
-              title="Compliant"
-              value={systemHealth.complianceScore}
-              subtitle="Compliance Score"
-              progress="w-5/6"
+              title="Compliance Score"
+              value={`${systemHealth.complianceScore}%`}
+              subtitle="Regulatory compliance"
+              progress="99%"
               status="compliant"
             />
             <SystemHealthCard
               icon={Cpu}
-              title="System"
-              value={systemHealth.latency}
-              subtitle="Network Latency (ms)"
-              progress="w-3/4"
+              title="Network Latency"
+              value={`${systemHealth.latency}ms`}
+              subtitle="System performance"
+              progress="92%"
               status="system"
             />
           </div>
         </div>
 
-        {/* Market Overview */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+        {/* Professional Market Overview */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           <div className="lg:col-span-2">
-            <Card className="bg-gray-900/50 border border-gray-800 h-full">
+            <Card variant="elevated" className="h-full">
               <CardHeader>
-                <CardTitle className="text-xl font-semibold text-white">Market Overview</CardTitle>
+                <CardTitle size="lg" className="text-white">Market Overview</CardTitle>
+                <p className="text-caption text-gray-400">Real-time market statistics and performance metrics</p>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid-metrics">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-cyan-400 mb-1">
+                    <div className="text-3xl font-bold text-archetyp-400 mb-2 number-professional">
                       <AnimatedNumber value={stats.totalMarketCap} decimals={1} suffix="B" prefix="$" />
                     </div>
-                    <div className="text-xs text-gray-400">Market Cap</div>
+                    <div className="text-caption text-gray-400">Market Cap</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white mb-1">
+                    <div className="text-3xl font-bold text-white mb-2 number-professional">
                       <AnimatedNumber value={stats.totalVolume} decimals={1} suffix="M" prefix="$" />
                     </div>
-                    <div className="text-xs text-gray-400">24h Volume</div>
+                    <div className="text-caption text-gray-400">24h Volume</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-green-400 mb-1">
+                    <div className="text-3xl font-bold text-success-400 mb-2 number-professional">
                       <AnimatedNumber value={stats.activeAssets} />
                     </div>
-                    <div className="text-xs text-gray-400">Active Assets</div>
+                    <div className="text-caption text-gray-400">Active Assets</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-purple-400 mb-1">
+                    <div className="text-3xl font-bold text-archetyp-400 mb-2 number-professional">
                       <AnimatedNumber value={stats.countries} />
                     </div>
-                    <div className="text-xs text-gray-400">Countries</div>
+                    <div className="text-caption text-gray-400">Countries</div>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
 
-          <Card className="bg-gray-900/50 border border-gray-800">
+          <Card variant="elevated">
             <CardHeader>
-              <CardTitle className="text-lg font-semibold text-white">Asset Distribution</CardTitle>
+              <CardTitle className="text-white">Asset Distribution</CardTitle>
             </CardHeader>
             <CardContent>
-              <ResponsiveContainer width="100%" height={200}>
+              <ResponsiveContainer width="100%" height={240}>
                 <PieChart>
                   <Pie
                     data={chartData}
                     cx="50%"
                     cy="50%"
-                    innerRadius={40}
-                    outerRadius={80}
+                    innerRadius={50}
+                    outerRadius={90}
                     dataKey="count"
                     label={false}
                   >
@@ -565,10 +424,11 @@ function ARCHTScan() {
                   <Tooltip 
                     formatter={(value, name) => [`${value} assets`, name]}
                     contentStyle={{
-                      backgroundColor: '#1f2937',
-                      border: '1px solid #374151',
-                      borderRadius: '8px',
-                      color: '#ffffff'
+                      backgroundColor: '#000000',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      borderRadius: '12px',
+                      color: '#ffffff',
+                      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.7)'
                     }}
                   />
                 </PieChart>
@@ -577,25 +437,29 @@ function ARCHTScan() {
           </Card>
         </div>
 
-        {/* Scan Progress */}
+        {/* Professional Scan Progress */}
         {isScanning && (
-          <Card className="mb-8 bg-gradient-to-r from-cyan-900/30 to-blue-900/30 border border-cyan-500/30">
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center">
-                    <Activity className="w-4 h-4 text-cyan-400 animate-pulse" />
+          <Card variant="accent" className="mb-12">
+            <CardContent spacing="loose">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-archetyp-500/20 rounded-2xl flex items-center justify-center border border-archetyp-500/30">
+                    <Activity className="w-6 h-6 text-archetyp-400 animate-pulse" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-white">Asset Scanning in Progress</h3>
-                    <p className="text-sm text-gray-400">Analyzing {allAssets.length} assets across {stats.categories} categories</p>
+                    <h3 className="text-xl font-bold text-white">Asset Scanning in Progress</h3>
+                    <p className="text-sm text-gray-400">
+                      Analyzing {allAssets.length} assets across {stats.categories} categories
+                    </p>
                   </div>
                 </div>
-                <span className="text-sm text-cyan-400 font-semibold">{scanProgress.toFixed(1)}% Complete</span>
+                <span className="text-lg text-archetyp-400 font-bold number-professional">
+                  {scanProgress.toFixed(1)}% Complete
+                </span>
               </div>
-              <div className="w-full bg-gray-700 rounded-full h-3 overflow-hidden">
+              <div className="w-full bg-white/10 rounded-full h-4 overflow-hidden">
                 <div 
-                  className="bg-gradient-to-r from-cyan-400 to-blue-500 h-3 rounded-full transition-all duration-300 shadow-lg"
+                  className="bg-gradient-to-r from-archetyp-400 to-archetyp-500 h-4 rounded-full transition-all duration-300 shadow-glow"
                   style={{ width: `${scanProgress}%` }}
                 ></div>
               </div>
@@ -603,25 +467,25 @@ function ARCHTScan() {
           </Card>
         )}
 
-        {/* Controles de filtrado */}
-        <Card className="mb-8 bg-gray-900/50 border border-gray-800">
-          <CardContent className="p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-4">
+        {/* Professional Filter Controls */}
+        <Card variant="elevated" className="mb-12">
+          <CardContent spacing="loose">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-6">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
                   type="text"
                   placeholder="Search assets..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all duration-200"
+                  className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-archetyp-500 focus:ring-2 focus:ring-archetyp-500/20 transition-all duration-200 backdrop-blur-sm"
                 />
               </div>
               
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all duration-200"
+                className="px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-archetyp-500 focus:ring-2 focus:ring-archetyp-500/20 transition-all duration-200 backdrop-blur-sm"
               >
                 <option value="all">All Categories</option>
                 <option value="strategic_minerals">Strategic Minerals</option>
@@ -638,7 +502,7 @@ function ARCHTScan() {
               <select
                 value={selectedCountry}
                 onChange={(e) => setSelectedCountry(e.target.value)}
-                className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all duration-200"
+                className="px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-archetyp-500 focus:ring-2 focus:ring-archetyp-500/20 transition-all duration-200 backdrop-blur-sm"
               >
                 <option value="all">All Countries</option>
                 <option value="Brazil">Brazil</option>
@@ -653,7 +517,7 @@ function ARCHTScan() {
 
               <div className="flex items-center space-x-2">
                 <Button
-                  variant={viewMode === 'grid' ? 'default' : 'ghost'}
+                  variant={viewMode === 'grid' ? 'primary' : 'ghost'}
                   size="sm"
                   onClick={() => setViewMode('grid')}
                   className="flex-1"
@@ -661,7 +525,7 @@ function ARCHTScan() {
                   Grid
                 </Button>
                 <Button
-                  variant={viewMode === 'table' ? 'default' : 'ghost'}
+                  variant={viewMode === 'table' ? 'primary' : 'ghost'}
                   size="sm"
                   onClick={() => setViewMode('table')}
                   className="flex-1"
@@ -671,35 +535,24 @@ function ARCHTScan() {
               </div>
 
               <div className="flex items-center space-x-2">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setSidebarOpen(true)}
-                  className="lg:hidden flex-1"
-                >
-                  <Menu className="w-4 h-4 mr-2" />
-                  Stats
+                <Button variant="ghost" size="sm" className="flex-1">
+                  <Download className="w-4 h-4 mr-2" />
+                  Export
                 </Button>
-                <Button
-                  variant={showHiddenAssets ? 'default' : 'ghost'}
-                  size="sm"
-                  onClick={() => setShowHiddenAssets(!showHiddenAssets)}
-                  className="hidden lg:flex items-center space-x-2"
-                >
-                  {showHiddenAssets ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
-                  <span className="hidden xl:inline">Hidden</span>
+                <Button variant="ghost" size="sm">
+                  <Settings className="w-4 h-4" />
                 </Button>
               </div>
             </div>
 
-            <div className="flex items-center justify-between text-sm text-gray-400 mt-4">
+            <div className="flex items-center justify-between text-sm text-gray-400">
               <span>Showing {paginatedAssets.length} of {filteredAssets.length} assets</span>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-3">
                 <span>Sort by:</span>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-2 py-1 bg-gray-800 border border-gray-700 rounded text-white text-xs focus:outline-none focus:border-cyan-500"
+                  className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:border-archetyp-500"
                 >
                   <option value="name">Name</option>
                   <option value="currentPrice">Price</option>
@@ -711,7 +564,7 @@ function ARCHTScan() {
                   variant="ghost"
                   size="sm"
                   onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                  className="px-2"
+                  className="px-3"
                 >
                   {sortOrder === 'asc' ? '↑' : '↓'}
                 </Button>
@@ -720,12 +573,17 @@ function ARCHTScan() {
           </CardContent>
         </Card>
 
-        {/* Asset Portfolio */}
-        <Card className="bg-gray-900/50 border border-gray-800">
+        {/* Professional Asset Portfolio */}
+        <Card variant="elevated">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle className="text-xl font-semibold text-white">Asset Portfolio</CardTitle>
-              <div className="flex items-center space-x-2">
+              <div>
+                <CardTitle size="xl" className="text-white">Asset Portfolio</CardTitle>
+                <p className="text-caption text-gray-400 mt-2">
+                  Comprehensive view of all tokenized real-world assets
+                </p>
+              </div>
+              <div className="flex items-center space-x-3">
                 <Button variant="ghost" size="sm">
                   <Download className="w-4 h-4 mr-2" />
                   Export
@@ -736,42 +594,45 @@ function ARCHTScan() {
               </div>
             </div>
           </CardHeader>
-          <CardContent className="p-6">
+          
+          <CardContent spacing="loose">
             {isLoading ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {Array.from({ length: 8 }).map((_, index) => (
-                  <div key={index} className="bg-gray-800/30 rounded-lg p-4 border border-gray-700 animate-pulse">
-                    <div className="w-10 h-10 bg-gray-700 rounded-lg mb-3"></div>
-                    <div className="h-4 bg-gray-700 rounded mb-2"></div>
-                    <div className="h-3 bg-gray-700 rounded w-2/3"></div>
-                  </div>
+                  <div key={index} className="loading-shimmer-professional rounded-2xl p-6 border border-white/5 h-48"></div>
                 ))}
               </div>
             ) : viewMode === 'grid' ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {paginatedAssets.map((asset, index) => (
-                  <AssetCard key={asset.id || asset.symbol} asset={asset} index={index} />
+                  <AssetCard 
+                    key={asset.id || asset.symbol} 
+                    asset={asset} 
+                    index={index}
+                    className="animate-fade-in-professional"
+                    style={{ animationDelay: `${index * 0.05}s` }}
+                  />
                 ))}
               </div>
             ) : (
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto scrollbar-professional">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-gray-800">
-                      <th className="text-left py-3 px-4 text-sm font-medium text-gray-300">Asset</th>
-                      <th className="text-left py-3 px-4 text-sm font-medium text-gray-300">Symbol</th>
-                      <th className="text-right py-3 px-4 text-sm font-medium text-gray-300">Price</th>
-                      <th className="text-right py-3 px-4 text-sm font-medium text-gray-300">Change</th>
-                      <th className="text-right py-3 px-4 text-sm font-medium text-gray-300">Volume</th>
-                      <th className="text-left py-3 px-4 text-sm font-medium text-gray-300">Country</th>
+                    <tr className="border-b border-white/10">
+                      <th className="text-left py-4 px-6 text-sm font-semibold text-gray-300">Asset</th>
+                      <th className="text-left py-4 px-6 text-sm font-semibold text-gray-300">Symbol</th>
+                      <th className="text-right py-4 px-6 text-sm font-semibold text-gray-300">Price</th>
+                      <th className="text-right py-4 px-6 text-sm font-semibold text-gray-300">Change</th>
+                      <th className="text-right py-4 px-6 text-sm font-semibold text-gray-300">Volume</th>
+                      <th className="text-left py-4 px-6 text-sm font-semibold text-gray-300">Country</th>
                     </tr>
                   </thead>
                   <tbody>
                     {paginatedAssets.map((asset, index) => (
-                      <tr key={asset.id || asset.symbol} className="border-b border-gray-800/50 hover:bg-gray-800/30 transition-colors">
-                        <td className="py-3 px-4 text-sm text-white font-medium">{asset.name}</td>
-                        <td className="py-3 px-4 text-sm text-gray-300">{asset.symbol}</td>
-                        <td className="py-3 px-4 text-right text-sm text-white font-mono">
+                      <tr key={asset.id || asset.symbol} className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                        <td className="py-4 px-6 text-sm text-white font-medium">{asset.name}</td>
+                        <td className="py-4 px-6 text-sm text-gray-300 font-mono">{asset.symbol}</td>
+                        <td className="py-4 px-6 text-right text-sm text-white font-mono">
                           <AnimatedNumber 
                             value={asset.currentPrice || asset.price} 
                             duration={400}
@@ -779,12 +640,12 @@ function ARCHTScan() {
                             prefix="$"
                           />
                         </td>
-                        <td className={`py-3 px-4 text-right text-sm font-semibold ${
-                          (asset.change24h || asset.change) >= 0 ? 'text-green-400' : 'text-red-400'
+                        <td className={`py-4 px-6 text-right text-sm font-semibold ${
+                          (asset.change24h || asset.change) >= 0 ? 'text-success-400' : 'text-error-400'
                         }`}>
                           {(asset.change24h || asset.change) >= 0 ? '+' : ''}{(asset.change24h || asset.change)?.toFixed(2)}%
                         </td>
-                        <td className="py-3 px-4 text-right text-sm text-gray-300 font-mono">
+                        <td className="py-4 px-6 text-right text-sm text-gray-300 font-mono">
                           <AnimatedNumber 
                             value={asset.volume24h || asset.volume || 0} 
                             duration={400}
@@ -793,7 +654,7 @@ function ARCHTScan() {
                             prefix="$"
                           />
                         </td>
-                        <td className="py-3 px-4 text-sm text-gray-300">{asset.country}</td>
+                        <td className="py-4 px-6 text-sm text-gray-300">{asset.country}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -802,20 +663,20 @@ function ARCHTScan() {
             )}
 
             {filteredAssets.length === 0 && !isLoading && (
-              <div className="text-center py-12">
-                <Search className="w-12 h-12 text-gray-600 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-400 mb-2">No assets found</h3>
+              <div className="text-center py-16">
+                <Search className="w-16 h-16 text-gray-600 mx-auto mb-6" />
+                <h3 className="text-xl font-semibold text-gray-400 mb-3">No assets found</h3>
                 <p className="text-gray-500">Try adjusting your search criteria</p>
               </div>
             )}
 
-            {/* Paginación mejorada */}
+            {/* Professional Pagination */}
             {filteredAssets.length > itemsPerPage && (
-              <div className="flex items-center justify-between mt-6 pt-6 border-t border-gray-800">
+              <div className="flex items-center justify-between mt-8 pt-8 border-t border-white/10">
                 <div className="text-sm text-gray-400">
                   Page {currentPage} of {Math.ceil(filteredAssets.length / itemsPerPage)}
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-3">
                   <Button
                     variant="ghost"
                     size="sm"
@@ -830,10 +691,10 @@ function ARCHTScan() {
                       return (
                         <Button
                           key={pageNum}
-                          variant={currentPage === pageNum ? 'default' : 'ghost'}
+                          variant={currentPage === pageNum ? 'primary' : 'ghost'}
                           size="sm"
                           onClick={() => setCurrentPage(pageNum)}
-                          className="w-8 h-8 p-0"
+                          className="w-10 h-10 p-0"
                         >
                           {pageNum}
                         </Button>
