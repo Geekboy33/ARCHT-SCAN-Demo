@@ -111,22 +111,22 @@ function Contact() {
       <section className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">Get in Touch</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto px-4">
             Contact our team for institutional partnerships and technical support.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {contactInfo.map((info, index) => (
             <Card key={index} className="bg-black/50 border border-gray-800 hover:border-gray-700 transition-all duration-300 group">
-              <CardContent className="p-8 text-center">
+              <CardContent className="p-6 sm:p-8 text-center">
                 <div className={`${info.color} mb-4 group-hover:scale-110 transition-transform duration-300 mx-auto w-fit`}>
                   {info.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">{info.title}</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-4">{info.title}</h3>
                 <div className="space-y-2">
                   {info.details.map((detail, detailIndex) => (
-                    <p key={detailIndex} className="text-gray-300 text-sm">
+                    <p key={detailIndex} className="text-gray-300 text-xs sm:text-sm break-all">
                       {detail}
                     </p>
                   ))}
@@ -142,21 +142,21 @@ function Contact() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-white">Departments</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto px-4">
               Specialized teams for different types of inquiries and partnerships.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {departments.map((dept, index) => (
               <Card key={index} className="bg-black/50 border border-gray-800">
                 <CardHeader>
-                  <CardTitle className="text-xl text-white">{dept.title}</CardTitle>
-                  <p className="text-gray-400">{dept.description}</p>
+                  <CardTitle className="text-lg sm:text-xl text-white">{dept.title}</CardTitle>
+                  <p className="text-sm sm:text-base text-gray-400">{dept.description}</p>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex items-center justify-between">
-                    <span className="text-cyan-400 font-mono text-sm">{dept.email}</span>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <span className="text-cyan-400 font-mono text-xs sm:text-sm break-all">{dept.email}</span>
                     <Button variant="outline" size="sm">
                       <Mail className="w-4 h-4 mr-2" />
                       Email
@@ -173,64 +173,64 @@ function Contact() {
       <section className="max-w-4xl mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">Send us a Message</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto px-4">
             Fill out the form below and we'll get back to you within 24 hours.
           </p>
         </div>
 
         <Card className="bg-black/50 border border-gray-800">
-          <CardContent className="p-8">
+          <CardContent className="p-6 sm:p-8">
             <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                     First Name
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                    className="w-full px-4 py-2 sm:py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-sm sm:text-base"
                     placeholder="Enter your first name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                     Last Name
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                    className="w-full px-4 py-2 sm:py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-sm sm:text-base"
                     placeholder="Enter your last name"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                   Email
                 </label>
                 <input
                   type="email"
-                  className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                  className="w-full px-4 py-2 sm:py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-sm sm:text-base"
                   placeholder="Enter your email address"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                   Organization
                 </label>
                 <input
                   type="text"
-                  className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                  className="w-full px-4 py-2 sm:py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-sm sm:text-base"
                   placeholder="Enter your organization"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                   Inquiry Type
                 </label>
-                <select className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent">
+                <select className="w-full px-4 py-2 sm:py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-sm sm:text-base">
                   <option value="">Select inquiry type</option>
                   <option value="government">Government Partnership</option>
                   <option value="enterprise">Enterprise Solutions</option>
@@ -241,18 +241,18 @@ function Contact() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
                   Message
                 </label>
                 <textarea
-                  rows={6}
-                  className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none"
+                  rows={4}
+                  className="w-full px-4 py-2 sm:py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none text-sm sm:text-base"
                   placeholder="Tell us about your project or inquiry..."
                 />
               </div>
 
               <div className="text-center">
-                <Button variant="gradient" size="lg" className="w-full md:w-auto">
+                <Button variant="gradient" size="lg" className="w-full sm:w-auto">
                   <Send className="mr-2 w-5 h-5" />
                   Send Message
                 </Button>
