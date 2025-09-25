@@ -19,8 +19,7 @@ function Contact() {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
       details: [
-        "+1 (555) 123-4567",
-        "+971 4 123 4567"
+        "Available upon request"
       ],
       color: "text-white"
     },
