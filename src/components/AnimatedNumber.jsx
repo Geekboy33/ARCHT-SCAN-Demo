@@ -78,11 +78,11 @@ const AnimatedNumber = ({
   };
 
   const baseClasses = `number-counter transition-all duration-300 ${className}`;
-  const effectClasses = glow ? 'number-glow' : '';
-  const scaleClasses = scale ? 'number-scale' : '';
+  const effectClasses = glow ? 'text-glow-white' : '';
+  const scaleClasses = scale ? 'hover:scale-105 transition-transform duration-300' : '';
   
   return (
-    <span className={`${baseClasses} ${effectClasses} ${scaleClasses}`}>
+    <span className={`${baseClasses} ${effectClasses} ${scaleClasses} font-mono`}>
       {prefix}{formatNumber(displayValue)}{suffix}
     </span>
   );

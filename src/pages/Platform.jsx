@@ -11,6 +11,12 @@ function Platform() {
   const platformFeatures = [
     {
       icon: <BarChart3 className="w-8 h-8" />,
+      title: "ARCHT SCAN",
+      description: "Advanced asset monitoring and analytics dashboard",
+      link: "/platform/archt-scan"
+    },
+    {
+      icon: <BarChart3 className="w-8 h-8" />,
       title: "Professional Dashboards",
       description: "Real-time analytics and monitoring tools for institutional users",
       link: "/platform/dashboards"

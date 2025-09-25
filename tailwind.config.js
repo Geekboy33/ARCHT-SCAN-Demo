@@ -22,8 +22,8 @@ export default {
           primary: '#06b6d4',
           secondary: '#0891b2',
           accent: '#22d3ee',
-            dark: '#000000',
-            darker: '#000000',
+          dark: '#000000',
+          darker: '#000000',
           light: '#f0f9ff'
         },
         gray: {
