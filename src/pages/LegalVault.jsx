@@ -256,7 +256,3 @@ function LegalVault() {
         </div>
       </section>
     </div>
-  );
-}
-
-export default LegalVault;

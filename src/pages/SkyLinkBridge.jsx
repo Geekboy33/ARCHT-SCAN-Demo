@@ -85,7 +85,6 @@ function SkyLinkBridge() {
           </div>
         </div>
       </section>
-    </div>
       {/* Bridge Stats */}
       <div className="max-w-7xl mx-auto px-4 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -282,7 +281,3 @@ function SkyLinkBridge() {
         </div>
       </div>
     </div>
-  );
-}
-
-export default SkyLinkBridge;
