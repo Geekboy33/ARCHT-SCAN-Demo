@@ -54,6 +54,7 @@ function App() {
         
         {/* Subpáginas de Assets */}
         <Route path="/assets/brazil" element={<Layout><TestPage title="Brazil Pilot" description="Brazil pilot project details" /></Layout>} />
+        <Route path="/assets/explorer" element={<Layout><TestPage title="Asset Explorer" description="Comprehensive asset exploration and discovery" /></Layout>} />
         
         {/* Ruta por defecto */}
         <Route path="*" element={<Navigate to="/" replace />} />

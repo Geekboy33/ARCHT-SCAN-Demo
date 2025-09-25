@@ -72,7 +72,8 @@ export function Header() {
       name: 'Assets', 
       path: '/assets',
       dropdown: [
-        { name: 'Brazil Pilot', path: '/assets/brazil' }
+        { name: 'Brazil Pilot', path: '/assets/brazil' },
+        { name: 'Asset Explorer', path: '/assets/explorer' }
       ]
     },
     { name: 'Economics', path: '/economics' },
