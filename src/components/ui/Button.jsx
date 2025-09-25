@@ -14,9 +14,9 @@ const Button = React.forwardRef(({
   const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden group";
   
   const variants = {
-    primary: "btn-primary",
-    secondary: "btn-secondary", 
-    ghost: "btn-ghost",
+    primary: "bg-white text-black font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-100 hover:scale-105 active:scale-95",
+    secondary: "bg-transparent border-2 border-white text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white hover:text-black hover:scale-105 active:scale-95",
+    ghost: "bg-transparent text-white font-medium hover:bg-white/[.10] transition-all duration-200 hover:scale-105 active:scale-95",
     outline: "bg-transparent border-2 border-white/20 text-white hover:border-white hover:bg-white hover:text-black hover:scale-105 active:scale-95 font-semibold shadow-lg hover:shadow-xl transition-all duration-300",
     gradient: "bg-gradient-to-r from-white to-gray-200 text-black hover:from-gray-100 hover:to-gray-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 font-semibold transition-all duration-300",
     glass: "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 hover:border-white/30 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300",

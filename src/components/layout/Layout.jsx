@@ -10,27 +10,9 @@ export function Layout({ children }) {
 
   // Scroll to top when route changes
   useEffect(() => {
-    setIsLoading(true);
     window.scrollTo(0, 0);
-    
-    // Simular carga de página
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 300);
-    
-    return () => clearTimeout(timer);
   }, [location.pathname]);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-center">
-          <Spinner size="lg" />
-          <p className="text-white mt-4">Loading...</p>
-        </div>
-      </div>
-    );
-  }
   return (
     <div className="min-h-screen bg-black flex flex-col">
       <Header />

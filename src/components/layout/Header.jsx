@@ -86,51 +86,38 @@ export function Header() {
             <div className="flex items-center space-x-1">
               {navItems.map((item) => (
                 <div key={item.name} className="relative group">
-                  {item.dropdown ? (
-                    <>
-                      <Link
-                        to={item.path}
-                        className={`flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
-                          isActive(item.path)
-                            ? 'bg-white/[.10] text-white shadow-lg'
-                            : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
-                        }`}
-                      >
-                        {item.name}
-                        <ChevronDown className="ml-2 w-4 h-4" />
-                      </Link>
-                      
-                      <div className="absolute top-full left-0 mt-2 w-72 bg-black/95 backdrop-blur-xl border border-white/[.10] rounded-2xl shadow-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                        <div className="p-2">
-                          {item.dropdown.map((subItem) => (
-                            <Link
-                              key={subItem.path}
-                              to={subItem.path}
-                              className={`block p-4 rounded-xl transition-all duration-200 ${
-                                isActive(subItem.path)
-                                  ? 'bg-white/[.10] text-white'
-                                  : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
-                              }`}
-                            >
-                              <div className="font-medium text-sm">
-                                {subItem.name}
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
+                  <Link
+                    to={item.path}
+                    className={`flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                      isActive(item.path)
+                        ? 'bg-white/[.10] text-white shadow-lg'
+                        : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
+                    }`}
+                  >
+                    {item.name}
+                    {item.dropdown && <ChevronDown className="ml-2 w-4 h-4" />}
+                  </Link>
+                  
+                  {item.dropdown && (
+                    <div className="absolute top-full left-0 mt-2 w-72 bg-black/95 backdrop-blur-xl border border-white/[.10] rounded-2xl shadow-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                      <div className="p-2">
+                        {item.dropdown.map((subItem) => (
+                          <Link
+                            key={subItem.path}
+                            to={subItem.path}
+                            className={`block p-4 rounded-xl transition-all duration-200 ${
+                              isActive(subItem.path)
+                                ? 'bg-white/[.10] text-white'
+                                : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
+                            }`}
+                          >
+                            <div className="font-medium text-sm">
+                              {subItem.name}
+                            </div>
+                          </Link>
+                        ))}
                       </div>
-                    </>
-                  ) : (
-                    <Link
-                      to={item.path}
-                      className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
-                        isActive(item.path)
-                          ? 'bg-white/[.10] text-white shadow-lg'
-                          : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
+                    </div>
                   )}
                 </div>
               ))}
