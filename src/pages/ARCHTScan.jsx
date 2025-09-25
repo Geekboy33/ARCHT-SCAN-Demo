@@ -186,7 +186,7 @@ function ARCHTScan() {
 
   // Professional statistics
   const stats = useMemo(() => {
-    const totalMarketCap = allAssets.reduce((sum, asset) => sum + (asset.marketCap || 0), 0);
+    const totalMarketCap = 10000000000; // Fixed 10B market cap
     const totalVolume = allAssets.reduce((sum, asset) => sum + (asset.volume24h || 0), 0);
     const avgChange = allAssets.reduce((sum, asset) => sum + (asset.change24h || 0), 0) / allAssets.length;
     const categories = new Set(allAssets.map(asset => asset.category)).size;
@@ -274,7 +274,7 @@ function ARCHTScan() {
               </div>
               <div>
                 <h1 className="text-3xl font-bold text-white">
-                  ARCHT SCAN
+                  ARCHT SCAN Demo
                 </h1>
                 <p className="text-sm text-gray-400 flex items-center gap-3 mt-1">
                   <div className={`w-2 h-2 rounded-full animate-pulse ${realTimeData ? 'bg-success-400' : 'bg-gray-400'}`}></div>
