@@ -97,17 +97,18 @@ function Technology() {
       </section>
 
       {/* Technology Stack */}
-      <section className="max-w-7xl mx-auto px-4 py-20">
+      <section className="py-20 bg-black/50">
+        <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-white">Core Technologies</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Core Technologies</h2>
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
             Advanced technology stack designed for institutional-grade performance and security.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {techStack.map((tech, index) => (
-            <Card key={index} className="bg-black/50 border border-gray-800 hover:border-gray-700 transition-all duration-300 group">
+            <Card key={index} className="bg-black/50 border border-gray-800 hover:border-cyan-400 transition-all duration-300 group">
               <CardContent className="p-8">
                 <div className={`${tech.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
                   {tech.icon}
@@ -118,14 +119,15 @@ function Technology() {
             </Card>
           ))}
         </div>
+        </div>
       </section>
 
       {/* Architecture Layers */}
-      <section className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 py-20">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-white">Architecture Layers</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Architecture Layers</h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
               Modular architecture designed for scalability and maintainability.
             </p>
           </div>
@@ -153,10 +155,11 @@ function Technology() {
       </section>
 
       {/* Security Features */}
-      <section className="max-w-7xl mx-auto px-4 py-20">
+      <section className="py-20 bg-black/50">
+        <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-white">Security Features</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Security Features</h2>
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
             Military-grade security protocols and quantum-resistant encryption.
           </p>
         </div>
@@ -174,16 +177,17 @@ function Technology() {
             </Card>
           ))}
         </div>
+        </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 py-20">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 bg-gradient-to-r from-archetyp-400 via-archetyp-500 to-archetyp-600 bg-clip-text text-transparent tracking-tight">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6 text-white">Explore Our Technology</h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Explore Our Technology</h2>
+          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
             Dive deeper into the technical architecture and security features of ARCHT Protocol.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button variant="gradient" size="lg">
               Technical Documentation
             </Button>

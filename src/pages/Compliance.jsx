@@ -70,10 +70,10 @@ function Compliance() {
               </Link>
             </Button>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 bg-gradient-to-r from-archetyp-400 via-archetyp-500 to-archetyp-600 bg-clip-text text-transparent tracking-tight">
               Compliance & Regulation
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
               Automated compliance with global regulatory frameworks including MiCA, FATF, and Basel III standards.
             </p>
             
@@ -93,31 +93,33 @@ function Compliance() {
       </section>
 
       {/* Regulatory Framework */}
-      <section className="max-w-7xl mx-auto px-4 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-white">Regulatory Framework</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Comprehensive compliance across major financial jurisdictions worldwide.
-          </p>
-        </div>
+      <section className="py-20 bg-black/50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Regulatory Framework</h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+              Comprehensive compliance across major financial jurisdictions worldwide.
+            </p>
+          </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {regulations.map((regulation, index) => (
-            <Card key={index} className="bg-black/50 border border-gray-800 hover:border-gray-700 transition-all duration-300 group">
-              <CardContent className="p-8">
-                <div className={`${regulation.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  {regulation.icon}
-                </div>
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-white">{regulation.title}</h3>
-                  <div className="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-xs font-semibold border border-cyan-500/30">
-                    {regulation.status}
+          <div className="grid md:grid-cols-3 gap-8">
+            {regulations.map((regulation, index) => (
+              <Card key={index} className="bg-black/50 border border-gray-800 hover:border-cyan-400 transition-all duration-300 group">
+                <CardContent className="p-8">
+                  <div className={`${regulation.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    {regulation.icon}
                   </div>
-                </div>
-                <p className="text-gray-300 leading-relaxed">{regulation.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl font-bold text-white">{regulation.title}</h3>
+                    <div className="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-xs font-semibold border border-cyan-500/30">
+                      {regulation.status}
+                    </div>
+                  </div>
+                  <p className="text-gray-300 leading-relaxed">{regulation.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 

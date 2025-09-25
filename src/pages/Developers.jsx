@@ -58,10 +58,10 @@ function Developers() {
               </Link>
             </Button>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 bg-gradient-to-r from-archetyp-400 via-archetyp-500 to-archetyp-600 bg-clip-text text-transparent tracking-tight">
               Developer Resources
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
               Build on ARCHT Protocol with comprehensive APIs, SDKs, and developer tools for real-world asset tokenization.
             </p>
             
@@ -81,35 +81,37 @@ function Developers() {
       </section>
 
       {/* Developer Tools */}
-      <section className="max-w-7xl mx-auto px-4 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-white">Developer Tools</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Everything you need to build on the ARCHT Protocol ecosystem.
-          </p>
-        </div>
+      <section className="py-20 bg-black/50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Developer Tools</h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+              Everything you need to build on the ARCHT Protocol ecosystem.
+            </p>
+          </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {developerTools.map((tool, index) => (
-            <Card key={index} className="bg-black/50 border border-gray-800 hover:border-gray-700 transition-all duration-300 group">
-              <CardContent className="p-8">
-                <div className={`${tool.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  {tool.icon}
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">{tool.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{tool.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+          <div className="grid md:grid-cols-3 gap-8">
+            {developerTools.map((tool, index) => (
+              <Card key={index} className="bg-black/50 border border-gray-800 hover:border-cyan-400 transition-all duration-300 group">
+                <CardContent className="p-8">
+                  <div className={`${tool.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    {tool.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-4">{tool.title}</h3>
+                  <p className="text-gray-300 leading-relaxed">{tool.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* API Endpoints */}
-      <section className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 py-20">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-white">API Endpoints</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">API Endpoints</h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
               Key API endpoints for asset management and trading operations.
             </p>
           </div>
