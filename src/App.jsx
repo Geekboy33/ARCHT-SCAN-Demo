@@ -20,6 +20,7 @@ import ARCHTScan from './pages/ARCHTScan';
 import AssetExplorer from './pages/AssetExplorer';
 import Economics from './pages/Economics';
 import BrazilPilot from './pages/BrazilPilot';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -41,7 +42,7 @@ function App() {
             <Route path="/roadmap" element={<Layout><ComingSoon title="Roadmap" description="36-month timeline" /></Layout>} />
             <Route path="/risk" element={<Layout><ComingSoon title="Risk & Security" description="Security measures and risk management" /></Layout>} />
             <Route path="/impact" element={<Layout><ComingSoon title="Impact" description="KPIs and metrics" /></Layout>} />
-            <Route path="/contact" element={<Layout><ComingSoon title="Contact" description="Get in touch with us" /></Layout>} />
+            <Route path="/contact" element={<Layout><Contact /></Layout>} />
             
             {/* Subpáginas del Protocol */}
             <Route path="/protocol/architecture" element={<Layout><ProtocolArchitecture /></Layout>} />
