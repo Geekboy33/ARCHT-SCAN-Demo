@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Search } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '../ui/Button';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
@@ -18,7 +17,6 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    setActiveDropdown(null);
     setIsMenuOpen(false);
   }, [location.pathname]);
 
@@ -87,13 +85,9 @@ export function Header() {
           <nav className="hidden lg:block">
             <div className="flex items-center space-x-1">
               {navItems.map((item) => (
-                <div key={item.name} className="relative">
+                <div key={item.name} className="relative group">
                   {item.dropdown ? (
-                    <div 
-                      className="relative"
-                      onMouseEnter={() => setActiveDropdown(item.name)}
-                      onMouseLeave={() => setActiveDropdown(null)}
-                    >
+                    <>
                       <Link
                         to={item.path}
                         className={`flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
@@ -106,28 +100,26 @@ export function Header() {
                         <ChevronDown className="ml-2 w-4 h-4" />
                       </Link>
                       
-                      {activeDropdown === item.name && (
-                        <div className="absolute top-full left-0 mt-2 w-72 bg-black/95 backdrop-blur-xl border border-white/[.10] rounded-2xl shadow-2xl overflow-hidden">
-                          <div className="p-2">
-                            {item.dropdown.map((subItem) => (
-                              <Link
-                                key={subItem.path}
-                                to={subItem.path}
-                                className={`block p-4 rounded-xl transition-all duration-200 ${
-                                  isActive(subItem.path)
-                                    ? 'bg-white/[.10] text-white'
-                                    : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
-                                }`}
-                              >
-                                <div className="font-medium text-sm">
-                                  {subItem.name}
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
+                      <div className="absolute top-full left-0 mt-2 w-72 bg-black/95 backdrop-blur-xl border border-white/[.10] rounded-2xl shadow-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        <div className="p-2">
+                          {item.dropdown.map((subItem) => (
+                            <Link
+                              key={subItem.path}
+                              to={subItem.path}
+                              className={`block p-4 rounded-xl transition-all duration-200 ${
+                                isActive(subItem.path)
+                                  ? 'bg-white/[.10] text-white'
+                                  : 'text-gray-300 hover:bg-white/[.05] hover:text-white'
+                              }`}
+                            >
+                              <div className="font-medium text-sm">
+                                {subItem.name}
+                              </div>
+                            </Link>
+                          ))}
                         </div>
-                      )}
-                    </div>
+                      </div>
+                    </>
                   ) : (
                     <Link
                       to={item.path}
