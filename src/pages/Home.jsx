@@ -162,17 +162,17 @@ function Home() {
           </div>
           
           {/* Título principal con efectos */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent animate-fade-in-up tracking-tight font-display">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent animate-fade-in-up tracking-tight font-display text-shadow-lg">
               ARCHT
             </h1>
           
           {/* Subtítulo con animación */}
-          <p className="text-xl md:text-3xl text-gray-300 mb-12 max-w-5xl mx-auto leading-relaxed animate-slide-up font-light font-sans">
+          <p className="text-xl md:text-3xl text-gray-300 mb-12 max-w-5xl mx-auto leading-relaxed animate-slide-up font-light font-sans text-shadow-md">
             Sovereign Digital Infrastructure for Real‑World Asset Tokenization
           </p>
 
           {/* Descripción adicional */}
-          <p className="text-lg text-gray-400 mb-16 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-400 mb-16 max-w-4xl mx-auto leading-relaxed text-shadow-subtle">
             Convert verified resources into programmable, tradable, and fully auditable digital assets. 
             Instant liquidity (T+0), MRV‑grade traceability, and institutional compliance by design.
           </p>

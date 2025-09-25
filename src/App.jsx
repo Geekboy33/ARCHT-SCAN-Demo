@@ -9,12 +9,13 @@ import Protocol from './pages/Protocol';
 import Platform from './pages/Platform';
 import Assets from './pages/Assets';
 import ComingSoon from './pages/ComingSoon';
-import TestPage from './pages/TestPage';
 import ProtocolArchitecture from './pages/ProtocolArchitecture';
 import LegalVault from './pages/LegalVault';
 import SkyLinkBridge from './pages/SkyLinkBridge';
 import MRVESG from './pages/MRVESG';
 import PlatformDashboards from './pages/PlatformDashboards';
+import PlatformIndices from './pages/PlatformIndices';
+import PlatformDataAPI from './pages/PlatformDataAPI';
 import ARCHTScan from './pages/ARCHTScan';
 import AssetExplorer from './pages/AssetExplorer';
 import Economics from './pages/Economics';
@@ -53,8 +54,8 @@ function App() {
         {/* Subpáginas de Platform */}
         <Route path="/platform/archt-scan" element={<Layout><ARCHTScan /></Layout>} />
         <Route path="/platform/dashboards" element={<Layout><PlatformDashboards /></Layout>} />
-        <Route path="/platform/indices" element={<Layout><TestPage title="Platform Indices" description="AMI/AAI/ACI/IPRT indices" /></Layout>} />
-        <Route path="/platform/data-api" element={<Layout><TestPage title="Data & API" description="Data feeds and API access" /></Layout>} />
+        <Route path="/platform/indices" element={<Layout><PlatformIndices /></Layout>} />
+        <Route path="/platform/data-api" element={<Layout><PlatformDataAPI /></Layout>} />
         
         {/* Subpáginas de Assets */}
         <Route path="/assets/brazil" element={<Layout><BrazilPilot /></Layout>} />

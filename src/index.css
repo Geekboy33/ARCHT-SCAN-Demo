@@ -520,17 +520,56 @@
   /* Enhanced Contrast */
   .text-contrast-high {
     color: #ffffff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   }
 
   .text-contrast-medium {
     color: #e5e5e5;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   }
 
   .text-contrast-low {
     color: #a3a3a3;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Improved hover effects */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Better focus states */
+  .focus-ring {
+    transition: all 0.2s ease;
+  }
+  
+  .focus-ring:focus {
+    outline: none;
+    ring: 2px;
+    ring-color: #06b6d4;
+    ring-offset: 2px;
+    ring-offset-color: #000000;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Better selection colors */
+  ::selection {
+    background-color: #06b6d4;
+    color: #ffffff;
+  }
+  
+  ::-moz-selection {
+    background-color: #06b6d4;
+    color: #ffffff;
   }
 
   /* Animated Text Effects */

@@ -13,14 +13,14 @@ const Button = React.forwardRef(({
   const baseClasses = "inline-flex items-center justify-center rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background relative overflow-hidden";
   
   const variants = {
-    default: "bg-archetyp-500 text-white hover:bg-archetyp-600 active:bg-archetyp-700 shadow-lg hover:shadow-xl",
-    destructive: "bg-error-500 text-white hover:bg-error-600 active:bg-error-700 shadow-lg hover:shadow-xl",
-    outline: "border-2 border-archetyp-500 bg-transparent text-archetyp-500 hover:bg-archetyp-500 hover:text-white active:bg-archetyp-600",
-    secondary: "bg-gray-700 text-white hover:bg-gray-600 active:bg-gray-800 shadow-lg hover:shadow-xl",
-    ghost: "hover:bg-gray-800 hover:text-white active:bg-gray-700",
-    link: "underline-offset-4 hover:underline text-archetyp-500 hover:text-archetyp-600",
-    gradient: "bg-gradient-to-r from-archetyp-500 to-archetyp-600 text-white hover:from-archetyp-600 hover:to-archetyp-700 shadow-lg hover:shadow-xl",
-    glass: "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 shadow-lg hover:shadow-xl"
+    default: "bg-archetyp-500 text-white hover:bg-archetyp-600 active:bg-archetyp-700 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95",
+    destructive: "bg-error-500 text-white hover:bg-error-600 active:bg-error-700 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95",
+    outline: "border-2 border-archetyp-500 bg-transparent text-archetyp-500 hover:bg-archetyp-500 hover:text-white active:bg-archetyp-600 hover:scale-105 active:scale-95",
+    secondary: "bg-gray-700 text-white hover:bg-gray-600 active:bg-gray-800 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95",
+    ghost: "hover:bg-gray-800 hover:text-white active:bg-gray-700 hover:scale-105 active:scale-95",
+    link: "underline-offset-4 hover:underline text-archetyp-500 hover:text-archetyp-600 hover:scale-105",
+    gradient: "bg-gradient-to-r from-archetyp-500 to-archetyp-600 text-white hover:from-archetyp-600 hover:to-archetyp-700 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95",
+    glass: "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
   };
   
   const sizes = {
