@@ -52,13 +52,24 @@ export function Footer() {
 
           <div>
             <h3 className="text-sm font-semibold text-gray-200 tracking-wider uppercase">
+              Company
+            </h3>
+            <ul className="mt-4 space-y-4">
+              <li><Link to="/about" className="text-base text-gray-400 hover:text-white">About</Link></li>
+              <li><Link to="/technology" className="text-base text-gray-400 hover:text-white">Technology</Link></li>
+              <li><Link to="/developers" className="text-base text-gray-400 hover:text-white">Developers</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold text-gray-200 tracking-wider uppercase">
               Resources
             </h3>
             <ul className="mt-4 space-y-4">
-              <li><Link to="/technology" className="text-base text-gray-400 hover:text-white">Technology</Link></li>
-              <li><Link to="/developers" className="text-base text-gray-400 hover:text-white">Developers</Link></li>
               <li><Link to="/insights" className="text-base text-gray-400 hover:text-white">Insights</Link></li>
-              <li><Link to="/about" className="text-base text-gray-400 hover:text-white">About</Link></li>
+              <li><Link to="/ecosystem" className="text-base text-gray-400 hover:text-white">Ecosystem</Link></li>
+              <li><Link to="/enterprises" className="text-base text-gray-400 hover:text-white">Enterprises</Link></li>
+              <li><Link to="/governments" className="text-base text-gray-400 hover:text-white">Governments</Link></li>
             </ul>
           </div>
         </div>

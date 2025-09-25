@@ -22,6 +22,9 @@ import AssetExplorer from './pages/AssetExplorer';
 import Economics from './pages/Economics';
 import BrazilPilot from './pages/BrazilPilot';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import CookiePolicy from './pages/CookiePolicy';
 
 function App() {
   return (
@@ -44,6 +47,11 @@ function App() {
             <Route path="/risk" element={<Layout><ComingSoon title="Risk & Security" description="Security measures and risk management" /></Layout>} />
             <Route path="/impact" element={<Layout><ComingSoon title="Impact" description="KPIs and metrics" /></Layout>} />
             <Route path="/contact" element={<Layout><Contact /></Layout>} />
+            
+            {/* Legal Pages */}
+            <Route path="/privacy" element={<Layout><PrivacyPolicy /></Layout>} />
+            <Route path="/terms" element={<Layout><TermsOfService /></Layout>} />
+            <Route path="/cookies" element={<Layout><CookiePolicy /></Layout>} />
             
             {/* Subpáginas del Protocol */}
             <Route path="/protocol/architecture" element={<Layout><ProtocolArchitecture /></Layout>} />
