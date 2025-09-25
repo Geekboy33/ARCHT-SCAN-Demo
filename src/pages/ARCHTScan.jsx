@@ -385,7 +385,6 @@ function ARCHTScan() {
         </div>
       </div>
 
-      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ${sidebarCollapsed ? '' : 'ml-80'} overflow-y-auto`}>
       <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ${sidebarCollapsed ? '' : 'ml-80'} min-h-screen`}>
         {/* System Health Overview optimizado */}
         <div className="mb-8">
