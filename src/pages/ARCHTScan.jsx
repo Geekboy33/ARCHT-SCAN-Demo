@@ -309,7 +309,7 @@ function ARCHTScan() {
   }
 
   return (
-    <div className="bg-black text-white min-h-screen overflow-x-hidden pt-0">
+    <div className="bg-black text-white min-h-screen overflow-x-hidden">
       {/* Sidebar avanzado */}
       {!sidebarCollapsed && (
         <div className="fixed left-0 top-16 h-[calc(100vh-4rem)] w-80 bg-gray-900/95 backdrop-blur-md border-r border-gray-800 z-40 overflow-y-auto">
