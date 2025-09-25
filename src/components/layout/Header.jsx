@@ -102,7 +102,44 @@ export function Header() {
           <nav className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item) => (
-                <div key={item.path} className="relative">
+                <div key={item.name} className="relative">
+                  {item.dropdown ? (
+                    <div>
+                      <button
+                        className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${
+                          isActive(item.path)
+                            ? 'bg-white/10 text-white'
+                            : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                        }`}
+                        onClick={() => handleDropdownToggle(item.name)}
+                      >
+                        <div className="flex items-center justify-between">
+                          {item.name}
+                          <ChevronDown className={`w-4 h-4 transition-transform ${
+                            activeDropdown === item.name ? 'rotate-180' : ''
+                          }`} />
+                        </div>
+                      </button>
+                      {activeDropdown === item.name && (
+                        <div className="ml-4 space-y-1 mt-2">
+                          {item.dropdown.map((subItem) => (
+                            <Link
+                              key={subItem.path}
+                              to={subItem.path}
+                              className={`block px-3 py-1 rounded-md text-sm transition-colors ${
+                                isActive(subItem.path)
+                                  ? 'bg-white/10 text-white'
+                                  : 'text-gray-400 hover:bg-gray-800 hover:text-white'
+                              }`}
+                              onClick={handleLinkClick}
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
                   {item.dropdown ? (
                     <div
                       className="relative"
@@ -115,7 +152,10 @@ export function Header() {
                             ? 'bg-white/10 text-white'
                             : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                         }`}
-                        onClick={() => handleDropdownToggle(item.name)}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleDropdownToggle(item.name);
+                        }}
                       >
                         {item.name}
                         <ChevronDown className={`w-3 h-3 transition-transform ${
@@ -124,14 +164,26 @@ export function Header() {
                       </button>
                       
                       {activeDropdown === item.name && (
-                        <div className="absolute top-full left-0 mt-1 w-56 bg-gray-900 border border-gray-700 rounded-lg shadow-lg z-50">
+                        <div className="absolute top-full left-0 mt-1 w-56 bg-gray-900 border border-gray-700 rounded-lg shadow-lg z-50"
+                             onMouseEnter={() => setActiveDropdown(item.name)}
+                             onMouseLeave={() => setActiveDropdown(null)}>
                           <div className="py-2">
                             {item.dropdown.map((subItem) => (
                               <Link
                                 key={subItem.path}
                                 to={subItem.path}
-                                className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
-                                onClick={handleLinkClick}
+                                className={`block px-4 py-2 text-sm transition-colors ${
+                                  isActive(subItem.path)
+                                    ? 'bg-white/10 text-white'
+                                    : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+                                }`}
+                                onClick={(e) => {
+                                  // No prevenir la navegación, solo cerrar el dropdown después de un delay
+                                  setTimeout(() => {
+                                    setActiveDropdown(null);
+                                    setIsMenuOpen(false);
+                                  }, 100);
+                                }}
                               >
                                 {subItem.name}
                               </Link>
@@ -139,19 +191,6 @@ export function Header() {
                           </div>
                         </div>
                       )}
-                    </div>
-                  ) : (
-                    <Link
-                      to={item.path}
-                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                        isActive(item.path)
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                      }`}
-                      onClick={handleLinkClick}
-                    >
-                      {item.name}
-                    </Link>
                   )}
                 </div>
               ))}
