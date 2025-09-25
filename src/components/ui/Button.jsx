@@ -11,16 +11,16 @@ const Button = React.forwardRef(({
   disabled = false,
   ...props 
 }, ref) => {
-  const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden group";
+  const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden group cursor-pointer";
   
   const variants = {
-    primary: "bg-white text-black font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-100 hover:scale-105 active:scale-95",
-    secondary: "bg-transparent border-2 border-white text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white hover:text-black hover:scale-105 active:scale-95",
-    ghost: "bg-transparent text-white font-medium hover:bg-white/[.10] transition-all duration-200 hover:scale-105 active:scale-95",
-    outline: "bg-transparent border-2 border-white/20 text-white hover:border-white hover:bg-white hover:text-black hover:scale-105 active:scale-95 font-semibold shadow-lg hover:shadow-xl transition-all duration-300",
-    gradient: "bg-gradient-to-r from-white to-gray-200 text-black hover:from-gray-100 hover:to-gray-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 font-semibold transition-all duration-300",
-    glass: "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 hover:border-white/30 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300",
-    accent: "bg-cyan-500/20 border border-cyan-400/30 text-cyan-400 hover:bg-cyan-500/30 hover:border-cyan-400/50 hover:text-cyan-300 shadow-lg hover:shadow-glow transition-all duration-300",
+    primary: "bg-white text-black font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-100",
+    secondary: "bg-transparent border-2 border-white text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white hover:text-black",
+    ghost: "bg-transparent text-white font-medium hover:bg-white/10 transition-all duration-200",
+    outline: "bg-transparent border border-white/20 text-white hover:border-white hover:bg-white hover:text-black font-semibold shadow-lg hover:shadow-xl transition-all duration-300",
+    gradient: "bg-gradient-to-r from-white to-gray-200 text-black hover:from-gray-100 hover:to-gray-300 shadow-lg hover:shadow-xl font-semibold transition-all duration-300",
+    glass: "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 hover:border-white/30 shadow-lg hover:shadow-xl transition-all duration-300",
+    accent: "bg-cyan-500/20 border border-cyan-400/30 text-cyan-400 hover:bg-cyan-500/30 hover:border-cyan-400/50 hover:text-cyan-300 shadow-lg transition-all duration-300",
     destructive: "bg-red-500/20 border border-red-400/30 text-red-400 hover:bg-red-500/30 hover:border-red-400/50 hover:text-red-300 shadow-lg hover:shadow-xl transition-all duration-300"
   };
   
@@ -41,7 +41,7 @@ const Button = React.forwardRef(({
     floating: "shadow-2xl"
   };
 
-  const Comp = asChild ? React.Fragment : "button";
+  const Comp = asChild ? 'div' : 'button';
   
   return (
     <Comp
@@ -64,7 +64,7 @@ const Button = React.forwardRef(({
       )}
       
       {/* Ripple effect */}
-      <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-inherit"></div>
+      <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       
       <span className={cn(
         "relative z-10 flex items-center justify-center",

@@ -80,43 +80,31 @@ export function Header() {
                   <div className="p-2">
                     <Link
                       to="/protocol/architecture"
-                      className={`block p-4 rounded-xl transition-all duration-200 ${
-                        isActive('/protocol/architecture')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block p-4 rounded-xl text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     >
                       <div className="font-medium text-sm">Architecture</div>
+                      <div className="text-xs text-gray-500 mt-1">6-layer protocol design</div>
                     </Link>
                     <Link
                       to="/protocol/legalvault"
-                      className={`block p-4 rounded-xl transition-all duration-200 ${
-                        isActive('/protocol/legalvault')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block p-4 rounded-xl text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     >
                       <div className="font-medium text-sm">LegalVault™</div>
+                      <div className="text-xs text-gray-500 mt-1">Legal compliance framework</div>
                     </Link>
                     <Link
                       to="/protocol/skylink"
-                      className={`block p-4 rounded-xl transition-all duration-200 ${
-                        isActive('/protocol/skylink')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block p-4 rounded-xl text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     >
                       <div className="font-medium text-sm">SkyLink Bridge</div>
+                      <div className="text-xs text-gray-500 mt-1">Cross-chain interoperability</div>
                     </Link>
                     <Link
                       to="/protocol/mrv-esg"
-                      className={`block p-4 rounded-xl transition-all duration-200 ${
-                        isActive('/protocol/mrv-esg')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block p-4 rounded-xl text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     >
                       <div className="font-medium text-sm">MRV / ESG</div>
+                      <div className="text-xs text-gray-500 mt-1">Environmental monitoring</div>
                     </Link>
                   </div>
                 </div>
@@ -140,43 +128,31 @@ export function Header() {
                   <div className="p-2">
                     <Link
                       to="/dashboard"
-                      className={`block p-4 rounded-xl transition-all duration-200 ${
-                        isActive('/dashboard')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block p-4 rounded-xl text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     >
                       <div className="font-medium text-sm">ARCHT SCAN</div>
+                      <div className="text-xs text-gray-500 mt-1">Asset monitoring dashboard</div>
                     </Link>
                     <Link
                       to="/platform/dashboards"
-                      className={`block p-4 rounded-xl transition-all duration-200 ${
-                        isActive('/platform/dashboards')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block p-4 rounded-xl text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     >
                       <div className="font-medium text-sm">Dashboards</div>
+                      <div className="text-xs text-gray-500 mt-1">Professional analytics</div>
                     </Link>
                     <Link
                       to="/platform/indices"
-                      className={`block p-4 rounded-xl transition-all duration-200 ${
-                        isActive('/platform/indices')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block p-4 rounded-xl text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     >
                       <div className="font-medium text-sm">Indices</div>
+                      <div className="text-xs text-gray-500 mt-1">AMI, AAI, ACI, IPRT</div>
                     </Link>
                     <Link
                       to="/platform/data-api"
-                      className={`block p-4 rounded-xl transition-all duration-200 ${
-                        isActive('/platform/data-api')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block p-4 rounded-xl text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     >
                       <div className="font-medium text-sm">Data & API</div>
+                      <div className="text-xs text-gray-500 mt-1">Enterprise data feeds</div>
                     </Link>
                   </div>
                 </div>
@@ -200,23 +176,17 @@ export function Header() {
                   <div className="p-2">
                     <Link
                       to="/assets/brazil"
-                      className={`block p-4 rounded-xl transition-all duration-200 ${
-                        isActive('/assets/brazil')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block p-4 rounded-xl text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     >
                       <div className="font-medium text-sm">Brazil Pilot</div>
+                      <div className="text-xs text-gray-500 mt-1">First sovereign implementation</div>
                     </Link>
                     <Link
                       to="/assets/explorer"
-                      className={`block p-4 rounded-xl transition-all duration-200 ${
-                        isActive('/assets/explorer')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block p-4 rounded-xl text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     >
                       <div className="font-medium text-sm">Asset Explorer</div>
+                      <div className="text-xs text-gray-500 mt-1">Browse all tokenized assets</div>
                     </Link>
                   </div>
                 </div>
@@ -283,11 +253,7 @@ export function Header() {
               <div className="px-4 py-4 space-y-2">
                 <Link
                   to="/"
-                  className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
-                    isActive('/')
-                      ? 'bg-white/10 text-white'
-                      : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                  }`}
+                  className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Home
@@ -297,11 +263,7 @@ export function Header() {
                 <div>
                   <Link
                     to="/protocol"
-                    className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
-                      isActive('/protocol')
-                        ? 'bg-white/10 text-white'
-                        : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                    }`}
+                    className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Protocol
@@ -309,44 +271,28 @@ export function Header() {
                   <div className="ml-4 mt-2 space-y-1">
                     <Link
                       to="/protocol/architecture"
-                      className={`block px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
-                        isActive('/protocol/architecture')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block px-4 py-2 rounded-lg text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Architecture
                     </Link>
                     <Link
                       to="/protocol/legalvault"
-                      className={`block px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
-                        isActive('/protocol/legalvault')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block px-4 py-2 rounded-lg text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       LegalVault™
                     </Link>
                     <Link
                       to="/protocol/skylink"
-                      className={`block px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
-                        isActive('/protocol/skylink')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block px-4 py-2 rounded-lg text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       SkyLink Bridge
                     </Link>
                     <Link
                       to="/protocol/mrv-esg"
-                      className={`block px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
-                        isActive('/protocol/mrv-esg')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block px-4 py-2 rounded-lg text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       MRV / ESG
@@ -358,11 +304,7 @@ export function Header() {
                 <div>
                   <Link
                     to="/platform"
-                    className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
-                      isActive('/platform')
-                        ? 'bg-white/10 text-white'
-                        : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                    }`}
+                    className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Platform
@@ -370,44 +312,28 @@ export function Header() {
                   <div className="ml-4 mt-2 space-y-1">
                     <Link
                       to="/dashboard"
-                      className={`block px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
-                        isActive('/dashboard')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block px-4 py-2 rounded-lg text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       ARCHT SCAN
                     </Link>
                     <Link
                       to="/platform/dashboards"
-                      className={`block px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
-                        isActive('/platform/dashboards')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block px-4 py-2 rounded-lg text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Dashboards
                     </Link>
                     <Link
                       to="/platform/indices"
-                      className={`block px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
-                        isActive('/platform/indices')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block px-4 py-2 rounded-lg text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Indices
                     </Link>
                     <Link
                       to="/platform/data-api"
-                      className={`block px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
-                        isActive('/platform/data-api')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block px-4 py-2 rounded-lg text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Data & API
@@ -419,11 +345,7 @@ export function Header() {
                 <div>
                   <Link
                     to="/assets"
-                    className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
-                      isActive('/assets')
-                        ? 'bg-white/10 text-white'
-                        : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                    }`}
+                    className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Assets
@@ -431,22 +353,14 @@ export function Header() {
                   <div className="ml-4 mt-2 space-y-1">
                     <Link
                       to="/assets/brazil"
-                      className={`block px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
-                        isActive('/assets/brazil')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block px-4 py-2 rounded-lg text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Brazil Pilot
                     </Link>
                     <Link
                       to="/assets/explorer"
-                      className={`block px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
-                        isActive('/assets/explorer')
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                      }`}
+                      className="block px-4 py-2 rounded-lg text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Asset Explorer
@@ -456,11 +370,7 @@ export function Header() {
 
                 <Link
                   to="/economics"
-                  className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
-                    isActive('/economics')
-                      ? 'bg-white/10 text-white'
-                      : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                  }`}
+                  className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Economics
@@ -468,11 +378,7 @@ export function Header() {
 
                 <Link
                   to="/contact"
-                  className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
-                    isActive('/contact')
-                      ? 'bg-white/10 text-white'
-                      : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                  }`}
+                  className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact
