@@ -309,7 +309,7 @@ function ARCHTScan() {
   }
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white min-h-screen overflow-x-hidden">
       {/* Sidebar avanzado */}
       {!sidebarCollapsed && (
         <div className="fixed left-0 top-0 h-full w-80 bg-gray-900/95 backdrop-blur-md border-r border-gray-800 z-50 overflow-y-auto">
@@ -385,7 +385,7 @@ function ARCHTScan() {
         </div>
       </div>
 
-      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ${sidebarCollapsed ? '' : 'ml-80'}`}>
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ${sidebarCollapsed ? '' : 'ml-80'} overflow-y-auto`}>
         {/* System Health Overview optimizado */}
         <div className="mb-8">
           <h2 className="text-hierarchy-3 font-display text-glow-white text-contrast-high mb-6 animate-fade-in-up">

@@ -57,11 +57,11 @@ function ProtocolArchitecture() {
   ];
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white min-h-screen">
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
+      <section className="relative overflow-hidden py-20">
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10" />
-        <div className="relative max-w-7xl mx-auto px-4 py-20">
+        <div className="relative max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <Button asChild variant="outline" className="mb-8">
               <Link to="/protocol">
@@ -90,10 +90,10 @@ function ProtocolArchitecture() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Architecture Layers */}
-      <div className="max-w-7xl mx-auto px-4 py-20">
+      <section className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">Architecture Layers</h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -129,10 +129,10 @@ function ProtocolArchitecture() {
             </Card>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Technical Specifications */}
-      <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 py-20">
+      <section className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-white">Technical Specifications</h2>
@@ -185,10 +185,10 @@ function ProtocolArchitecture() {
             </Card>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Integration Diagram */}
-      <div className="max-w-7xl mx-auto px-4 py-20">
+      <section className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">Integration Flow</h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -214,10 +214,10 @@ function ProtocolArchitecture() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 py-20">
+      <section className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6 text-white">Ready to Build?</h2>
           <p className="text-xl text-gray-300 mb-8">
@@ -232,7 +232,7 @@ function ProtocolArchitecture() {
             </Button>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

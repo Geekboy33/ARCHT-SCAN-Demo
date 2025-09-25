@@ -12,10 +12,10 @@ export function Layout({ children }) {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-black flex flex-col">
+    <div className="min-h-screen bg-black flex flex-col overflow-x-hidden">
       <Header />
-      <main className="flex-grow relative">
-        <div className="w-full min-h-full">
+      <main className="flex-grow relative overflow-y-auto">
+        <div className="w-full">
           {children}
         </div>
       </main>

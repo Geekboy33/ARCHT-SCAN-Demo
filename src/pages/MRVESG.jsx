@@ -33,11 +33,11 @@ function MRVESG() {
   ];
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white min-h-screen">
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
+      <section className="relative overflow-hidden py-20">
         <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-blue-500/10 to-purple-500/10" />
-        <div className="relative max-w-7xl mx-auto px-4 py-20">
+        <div className="relative max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <Button asChild variant="outline" className="mb-8">
               <Link to="/protocol">
@@ -66,7 +66,7 @@ function MRVESG() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* MRV Pillars */}
       <div className="max-w-7xl mx-auto px-4 py-20">

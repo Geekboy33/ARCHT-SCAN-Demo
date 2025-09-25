@@ -63,11 +63,11 @@ function LegalVault() {
   ];
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white min-h-screen">
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
+      <section className="relative overflow-hidden py-20">
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10" />
-        <div className="relative max-w-7xl mx-auto px-4 py-20">
+        <div className="relative max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <Button asChild variant="outline" className="mb-8">
               <Link to="/protocol">
@@ -96,10 +96,10 @@ function LegalVault() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Features Section */}
-      <div className="max-w-7xl mx-auto px-4 py-20">
+      <section className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">Core Features</h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -131,10 +131,10 @@ function LegalVault() {
             </Card>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Jurisdictions Section */}
-      <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 py-20">
+      <section className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-white">Global Jurisdictions</h2>
@@ -164,10 +164,10 @@ function LegalVault() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Legal Services */}
-      <div className="max-w-7xl mx-auto px-4 py-20">
+      <section className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-white">Legal Services</h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -194,10 +194,10 @@ function LegalVault() {
             </Card>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Compliance Dashboard */}
-      <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 py-20">
+      <section className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-white">Compliance Dashboard</h2>
@@ -238,10 +238,10 @@ function LegalVault() {
             </Card>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* CTA Section */}
-      <div className="max-w-4xl mx-auto px-4 py-20 text-center">
+      <section className="max-w-4xl mx-auto px-4 py-20 text-center">
         <h2 className="text-4xl font-bold mb-6 text-white">Ready for Legal Compliance?</h2>
         <p className="text-xl text-gray-300 mb-8">
           Get started with LegalVault™ and ensure your tokenized assets are fully compliant.
@@ -254,7 +254,7 @@ function LegalVault() {
             Contact Legal Team
           </Button>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
