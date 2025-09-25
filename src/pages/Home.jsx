@@ -137,30 +137,30 @@ function Home() {
         }`}>
           {/* Professional Status Badge */}
           <div className="mb-12 animate-fade-in-professional">
-            <div className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-md text-white px-8 py-4 rounded-full border border-white/10 shadow-xl">
+            <div className="inline-flex items-center gap-2 sm:gap-3 bg-white/5 backdrop-blur-md text-white px-4 sm:px-8 py-3 sm:py-4 rounded-full border border-white/10 shadow-xl">
               <div className="w-3 h-3 bg-white rounded-full animate-pulse shadow-glow"></div>
-              <span className="font-medium">Live on Mainnet • v2.1.0 • Institutional Grade</span>
+              <span className="font-medium text-sm sm:text-base">Live on Mainnet • v2.1.0 • Institutional Grade</span>
             </div>
           </div>
           
           {/* Hero Title - Professional Typography */}
-          <h1 className="responsive-text-display font-black mb-12 animate-fade-in-professional animate-stagger-1 text-glow-professional bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-8 sm:mb-12 animate-fade-in-professional animate-stagger-1 text-glow-professional bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
             ARCHT
           </h1>
           
           {/* Professional Subtitle */}
-          <p className="responsive-text-subtitle text-gray-300 mb-16 max-w-6xl mx-auto leading-relaxed animate-slide-up-professional animate-stagger-2 text-shadow-subtle">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 sm:mb-16 max-w-6xl mx-auto leading-relaxed animate-slide-up-professional animate-stagger-2 text-shadow-subtle px-4">
             Sovereign Digital Infrastructure for Real‑World Asset Tokenization
           </p>
 
           {/* Enhanced Description */}
-          <p className="text-lg md:text-xl text-gray-400 mb-20 max-w-5xl mx-auto leading-relaxed animate-fade-in-professional animate-stagger-3">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-16 sm:mb-20 max-w-5xl mx-auto leading-relaxed animate-fade-in-professional animate-stagger-3 px-4">
             Convert verified resources into programmable, tradable, and fully auditable digital assets. 
             Instant liquidity (T+0), MRV‑grade traceability, and institutional compliance by design.
           </p>
 
           {/* Professional CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-8 justify-center mb-24 animate-fade-in-professional animate-stagger-4">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center mb-16 sm:mb-24 animate-fade-in-professional animate-stagger-4 px-4">
             <Button asChild size="xl" variant="primary" elevation="floating" className="group">
               <Link to="/protocol">
                 <span className="flex items-center">
@@ -180,7 +180,7 @@ function Home() {
           </div>
 
           {/* Professional Metrics Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-24 animate-fade-in-professional animate-stagger-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-16 sm:mb-24 animate-fade-in-professional animate-stagger-5 px-4">
             <MetricCard
               title="Total Value Locked"
               value={`$${animatedStats.tvl.toFixed(1)}B`}
@@ -223,12 +223,12 @@ function Home() {
             <h2 className="text-title mb-6 text-glow-accent">
               Institutional-Grade Compliance & Interoperability
             </h2>
-            <p className="text-subtitle max-w-4xl mx-auto">
+            <p className="text-subtitle max-w-4xl mx-auto px-4">
               Trusted by governments, institutions, and enterprises worldwide
             </p>
           </div>
           
-          <div className="grid-cards mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-20 px-4">
             <FeatureCard
               icon={Shield}
               title="Regulatory Compliance"
@@ -252,7 +252,7 @@ function Home() {
           </div>
 
           {/* Professional Trust Metrics */}
-          <div className="grid-metrics">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-4">
             {trustMetrics.map((metric, index) => (
               <MetricCard
                 key={index}
@@ -274,12 +274,12 @@ function Home() {
             <h2 className="text-title mb-6 text-glow-accent">
               Four Pillars of Sovereign Infrastructure
             </h2>
-            <p className="text-subtitle max-w-5xl mx-auto">
+            <p className="text-subtitle max-w-5xl mx-auto px-4">
               Core principles that enable universal liquidity with verifiable ESG and embedded compliance
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 px-4">
             {keyFeatures.map((feature, index) => (
               <FeatureCard
                 key={index}
@@ -302,12 +302,12 @@ function Home() {
             <h2 className="text-title mb-6 text-glow-accent">
               ARCHT Market Indices
             </h2>
-            <p className="text-subtitle max-w-5xl mx-auto">
+            <p className="text-subtitle max-w-5xl mx-auto px-4">
               Real-time tracking of tokenized asset performance across mining, agriculture, energy, and carbon markets
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 px-4">
             {Object.entries(ARCHT_INDICES).map(([key, index], i) => (
               <Card key={key} variant="elevated" className="group animate-fade-in-professional" style={{ animationDelay: `${i * 0.1}s` }}>
                 <CardHeader spacing="loose">

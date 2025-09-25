@@ -249,11 +249,11 @@ export function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden border-t border-white/10">
-            <div className="bg-black/95 backdrop-blur-xl">
+            <div className="bg-black/95 backdrop-blur-xl max-h-screen overflow-y-auto">
               <div className="px-4 py-4 space-y-2">
                 <Link
                   to="/"
-                  className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
+                  className="block px-4 py-3 rounded-xl text-sm sm:text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Home
@@ -263,7 +263,7 @@ export function Header() {
                 <div>
                   <Link
                     to="/protocol"
-                    className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
+                    className="block px-4 py-3 rounded-xl text-sm sm:text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Protocol
@@ -304,7 +304,7 @@ export function Header() {
                 <div>
                   <Link
                     to="/platform"
-                    className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
+                    className="block px-4 py-3 rounded-xl text-sm sm:text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Platform
@@ -345,7 +345,7 @@ export function Header() {
                 <div>
                   <Link
                     to="/assets"
-                    className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
+                    className="block px-4 py-3 rounded-xl text-sm sm:text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Assets
@@ -370,7 +370,7 @@ export function Header() {
 
                 <Link
                   to="/economics"
-                  className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
+                  className="block px-4 py-3 rounded-xl text-sm sm:text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Economics
@@ -378,7 +378,7 @@ export function Header() {
 
                 <Link
                   to="/contact"
-                  className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
+                  className="block px-4 py-3 rounded-xl text-sm sm:text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white transition-all duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact

@@ -266,32 +266,35 @@ function ARCHTScan() {
     <div className="bg-primary text-white min-h-screen">
       {/* Professional Header */}
       <div className="sticky top-20 z-30 bg-black/95 backdrop-blur-xl border-b border-white/10 shadow-professional">
-        <div className="container-professional">
-          <div className="flex items-center justify-between h-20">
+        <div className="container-professional px-4">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             <div className="flex items-center space-x-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-archetyp-400 to-archetyp-500 rounded-2xl flex items-center justify-center shadow-glow">
-                <span className="text-white font-black text-xl">A</span>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-archetyp-400 to-archetyp-500 rounded-2xl flex items-center justify-center shadow-glow">
+                <span className="text-white font-black text-lg sm:text-xl">A</span>
               </div>
-              <div>
-                <h1 className="text-3xl font-bold text-white">
+              <div className="hidden sm:block">
+                <h1 className="text-2xl sm:text-3xl font-bold text-white">
                   ARCHT SCAN Demo
                 </h1>
-                <p className="text-sm text-gray-400 flex items-center gap-3 mt-1">
+                <p className="text-xs sm:text-sm text-gray-400 flex items-center gap-3 mt-1">
                   <div className={`w-2 h-2 rounded-full animate-pulse ${realTimeData ? 'bg-success-400' : 'bg-gray-400'}`}></div>
                   {realTimeData ? 'Live Monitoring' : 'Paused'} • Advanced Asset Analysis
-                  <span className="text-xs text-gray-500 ml-4">
+                  <span className="text-xs text-gray-500 ml-4 hidden md:inline">
                     Last update: {systemHealth.lastUpdate}
                   </span>
                 </p>
               </div>
+              <div className="sm:hidden">
+                <h1 className="text-xl font-bold text-white">ARCHT SCAN</h1>
+              </div>
             </div>
             
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 sm:space-x-4">
               <Button
                 variant={realTimeData ? "accent" : "outline"}
                 size="sm"
                 onClick={() => setRealTimeData(!realTimeData)}
-                className="hidden sm:flex items-center space-x-2"
+                className="hidden md:flex items-center space-x-2"
               >
                 {realTimeData ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
                 <span>{realTimeData ? 'Pause' : 'Resume'}</span>
@@ -304,7 +307,7 @@ function ARCHTScan() {
                 className="flex items-center space-x-2"
               >
                 {isScanning ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                <span className="hidden sm:inline">{isScanning ? 'Stop' : 'Scan'}</span>
+                <span className="hidden md:inline">{isScanning ? 'Stop' : 'Scan'}</span>
               </Button>
               
               <Button variant="ghost" size="sm" onClick={handleRefreshData} disabled={isLoading}>
@@ -315,18 +318,18 @@ function ARCHTScan() {
         </div>
       </div>
 
-      <div className="container-professional py-12 space-professional">
+      <div className="container-professional py-8 sm:py-12 space-professional px-4">
         {/* Professional System Health */}
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold text-white">System Health Overview</h2>
+        <div className="mb-8 sm:mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 gap-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">System Health Overview</h2>
             <div className="flex items-center space-x-3">
               <div className="w-3 h-3 bg-success-400 rounded-full animate-pulse shadow-glow"></div>
-              <span className="text-sm text-success-400 font-semibold">All Systems Operational</span>
+              <span className="text-xs sm:text-sm text-success-400 font-semibold">All Systems Operational</span>
             </div>
           </div>
           
-          <div className="grid-metrics">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             <SystemHealthCard
               icon={Activity}
               title="Active Scans"
@@ -363,38 +366,38 @@ function ARCHTScan() {
         </div>
 
         {/* Professional Market Overview */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
           <div className="lg:col-span-2">
             <Card variant="elevated" className="h-full">
               <CardHeader>
-                <CardTitle size="lg" className="text-white">Market Overview</CardTitle>
-                <p className="text-caption text-gray-400">Real-time market statistics and performance metrics</p>
+                <CardTitle size="lg" className="text-white text-lg sm:text-xl">Market Overview</CardTitle>
+                <p className="text-caption text-gray-400 text-xs sm:text-sm">Real-time market statistics and performance metrics</p>
               </CardHeader>
               <CardContent>
-                <div className="grid-metrics">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-archetyp-400 mb-2 number-professional">
+                    <div className="text-2xl sm:text-3xl font-bold text-archetyp-400 mb-2 number-professional">
                       <AnimatedNumber value={stats.totalMarketCap} decimals={1} suffix="B" prefix="$" />
                     </div>
-                    <div className="text-caption text-gray-400">Market Cap</div>
+                    <div className="text-caption text-gray-400 text-xs sm:text-sm">Market Cap</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-white mb-2 number-professional">
+                    <div className="text-2xl sm:text-3xl font-bold text-white mb-2 number-professional">
                       <AnimatedNumber value={stats.totalVolume} decimals={1} suffix="M" prefix="$" />
                     </div>
-                    <div className="text-caption text-gray-400">24h Volume</div>
+                    <div className="text-caption text-gray-400 text-xs sm:text-sm">24h Volume</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-success-400 mb-2 number-professional">
+                    <div className="text-2xl sm:text-3xl font-bold text-success-400 mb-2 number-professional">
                       <AnimatedNumber value={stats.activeAssets} />
                     </div>
-                    <div className="text-caption text-gray-400">Active Assets</div>
+                    <div className="text-caption text-gray-400 text-xs sm:text-sm">Active Assets</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-archetyp-400 mb-2 number-professional">
+                    <div className="text-2xl sm:text-3xl font-bold text-archetyp-400 mb-2 number-professional">
                       <AnimatedNumber value={stats.countries} />
                     </div>
-                    <div className="text-caption text-gray-400">Countries</div>
+                    <div className="text-caption text-gray-400 text-xs sm:text-sm">Countries</div>
                   </div>
                 </div>
               </CardContent>
@@ -468,9 +471,9 @@ function ARCHTScan() {
         )}
 
         {/* Professional Filter Controls */}
-        <Card variant="elevated" className="mb-12">
+        <Card variant="elevated" className="mb-8 sm:mb-12">
           <CardContent spacing="loose">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 mb-6">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
@@ -478,14 +481,14 @@ function ARCHTScan() {
                   placeholder="Search assets..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-archetyp-500 focus:ring-2 focus:ring-archetyp-500/20 transition-all duration-200 backdrop-blur-sm"
+                  className="w-full pl-12 pr-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-archetyp-500 focus:ring-2 focus:ring-archetyp-500/20 transition-all duration-200 backdrop-blur-sm text-sm sm:text-base"
                 />
               </div>
               
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-archetyp-500 focus:ring-2 focus:ring-archetyp-500/20 transition-all duration-200 backdrop-blur-sm"
+                className="px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-archetyp-500 focus:ring-2 focus:ring-archetyp-500/20 transition-all duration-200 backdrop-blur-sm text-sm sm:text-base"
               >
                 <option value="all">All Categories</option>
                 <option value="strategic_minerals">Strategic Minerals</option>
@@ -502,7 +505,7 @@ function ARCHTScan() {
               <select
                 value={selectedCountry}
                 onChange={(e) => setSelectedCountry(e.target.value)}
-                className="px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-archetyp-500 focus:ring-2 focus:ring-archetyp-500/20 transition-all duration-200 backdrop-blur-sm"
+                className="px-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-archetyp-500 focus:ring-2 focus:ring-archetyp-500/20 transition-all duration-200 backdrop-blur-sm text-sm sm:text-base"
               >
                 <option value="all">All Countries</option>
                 <option value="Brazil">Brazil</option>
@@ -515,14 +518,14 @@ function ARCHTScan() {
                 <option value="USA">USA</option>
               </select>
 
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 col-span-1 sm:col-span-2 lg:col-span-1">
                 <Button
                   variant={viewMode === 'grid' ? 'primary' : 'ghost'}
                   size="sm"
                   onClick={() => setViewMode('grid')}
                   className="flex-1"
                 >
-                  Grid
+                  <span className="hidden sm:inline">Grid</span><span className="sm:hidden">G</span>
                 </Button>
                 <Button
                   variant={viewMode === 'table' ? 'primary' : 'ghost'}
@@ -530,14 +533,14 @@ function ARCHTScan() {
                   onClick={() => setViewMode('table')}
                   className="flex-1"
                 >
-                  Table
+                  <span className="hidden sm:inline">Table</span><span className="sm:hidden">T</span>
                 </Button>
               </div>
 
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 col-span-1 sm:col-span-2 lg:col-span-1">
                 <Button variant="ghost" size="sm" className="flex-1">
                   <Download className="w-4 h-4 mr-2" />
-                  Export
+                  <span className="hidden sm:inline">Export</span>
                 </Button>
                 <Button variant="ghost" size="sm">
                   <Settings className="w-4 h-4" />
@@ -545,14 +548,14 @@ function ARCHTScan() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between text-sm text-gray-400">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm text-gray-400 gap-4">
               <span>Showing {paginatedAssets.length} of {filteredAssets.length} assets</span>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 justify-end">
                 <span>Sort by:</span>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:border-archetyp-500"
+                  className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-white text-xs sm:text-sm focus:outline-none focus:border-archetyp-500"
                 >
                   <option value="name">Name</option>
                   <option value="currentPrice">Price</option>
@@ -603,7 +606,7 @@ function ARCHTScan() {
                 ))}
               </div>
             ) : viewMode === 'grid' ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                 {paginatedAssets.map((asset, index) => (
                   <AssetCard 
                     key={asset.id || asset.symbol} 
@@ -615,24 +618,24 @@ function ARCHTScan() {
                 ))}
               </div>
             ) : (
-              <div className="overflow-x-auto scrollbar-professional">
+              <div className="overflow-x-auto scrollbar-professional -mx-4 sm:mx-0">
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-white/10">
-                      <th className="text-left py-4 px-6 text-sm font-semibold text-gray-300">Asset</th>
-                      <th className="text-left py-4 px-6 text-sm font-semibold text-gray-300">Symbol</th>
-                      <th className="text-right py-4 px-6 text-sm font-semibold text-gray-300">Price</th>
-                      <th className="text-right py-4 px-6 text-sm font-semibold text-gray-300">Change</th>
-                      <th className="text-right py-4 px-6 text-sm font-semibold text-gray-300">Volume</th>
-                      <th className="text-left py-4 px-6 text-sm font-semibold text-gray-300">Country</th>
+                      <th className="text-left py-3 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm font-semibold text-gray-300">Asset</th>
+                      <th className="text-left py-3 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm font-semibold text-gray-300">Symbol</th>
+                      <th className="text-right py-3 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm font-semibold text-gray-300">Price</th>
+                      <th className="text-right py-3 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm font-semibold text-gray-300">Change</th>
+                      <th className="text-right py-3 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm font-semibold text-gray-300 hidden sm:table-cell">Volume</th>
+                      <th className="text-left py-3 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm font-semibold text-gray-300 hidden md:table-cell">Country</th>
                     </tr>
                   </thead>
                   <tbody>
                     {paginatedAssets.map((asset, index) => (
                       <tr key={asset.id || asset.symbol} className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                        <td className="py-4 px-6 text-sm text-white font-medium">{asset.name}</td>
-                        <td className="py-4 px-6 text-sm text-gray-300 font-mono">{asset.symbol}</td>
-                        <td className="py-4 px-6 text-right text-sm text-white font-mono">
+                        <td className="py-3 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm text-white font-medium">{asset.name}</td>
+                        <td className="py-3 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm text-gray-300 font-mono">{asset.symbol}</td>
+                        <td className="py-3 sm:py-4 px-3 sm:px-6 text-right text-xs sm:text-sm text-white font-mono">
                           <AnimatedNumber 
                             value={asset.currentPrice || asset.price} 
                             duration={400}
@@ -640,12 +643,12 @@ function ARCHTScan() {
                             prefix="$"
                           />
                         </td>
-                        <td className={`py-4 px-6 text-right text-sm font-semibold ${
+                        <td className={`py-3 sm:py-4 px-3 sm:px-6 text-right text-xs sm:text-sm font-semibold ${
                           (asset.change24h || asset.change) >= 0 ? 'text-success-400' : 'text-error-400'
                         }`}>
                           {(asset.change24h || asset.change) >= 0 ? '+' : ''}{(asset.change24h || asset.change)?.toFixed(2)}%
                         </td>
-                        <td className="py-4 px-6 text-right text-sm text-gray-300 font-mono">
+                        <td className="py-3 sm:py-4 px-3 sm:px-6 text-right text-xs sm:text-sm text-gray-300 font-mono hidden sm:table-cell">
                           <AnimatedNumber 
                             value={asset.volume24h || asset.volume || 0} 
                             duration={400}
@@ -654,7 +657,7 @@ function ARCHTScan() {
                             prefix="$"
                           />
                         </td>
-                        <td className="py-4 px-6 text-sm text-gray-300">{asset.country}</td>
+                        <td className="py-3 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm text-gray-300 hidden md:table-cell">{asset.country}</td>
                       </tr>
                     ))}
                   </tbody>

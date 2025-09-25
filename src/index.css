@@ -466,23 +466,57 @@
   
   /* Enhanced Responsive Typography */
   .responsive-text-display {
-    font-size: clamp(3rem, 8vw, 8rem);
+    font-size: clamp(2.5rem, 8vw, 8rem);
     line-height: 0.9;
   }
   
   .responsive-text-hero {
-    font-size: clamp(2rem, 6vw, 6rem);
+    font-size: clamp(1.75rem, 6vw, 6rem);
     line-height: 1.1;
   }
   
   .responsive-text-title {
-    font-size: clamp(1.5rem, 4vw, 4rem);
+    font-size: clamp(1.25rem, 4vw, 4rem);
     line-height: 1.2;
   }
   
   .responsive-text-subtitle {
-    font-size: clamp(1rem, 2vw, 2rem);
+    font-size: clamp(0.875rem, 2vw, 2rem);
     line-height: 1.4;
+  }
+  
+  /* Mobile-specific optimizations */
+  @media (max-width: 640px) {
+    .container-professional {
+      @apply px-4;
+    }
+    
+    .section-professional {
+      @apply py-12;
+    }
+    
+    .grid-cards {
+      @apply grid-cols-1 gap-4;
+    }
+    
+    .grid-metrics {
+      @apply grid-cols-1 gap-4;
+    }
+    
+    .space-professional > * + * {
+      margin-top: var(--space-md);
+    }
+  }
+  
+  /* Tablet optimizations */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .grid-cards {
+      @apply grid-cols-2 gap-6;
+    }
+    
+    .grid-metrics {
+      @apply grid-cols-2 gap-4;
+    }
   }
   
   /* Professional Animations with Stagger */

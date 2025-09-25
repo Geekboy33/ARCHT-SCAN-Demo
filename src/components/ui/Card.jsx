@@ -34,9 +34,9 @@ Card.displayName = "Card";
 
 const CardHeader = React.forwardRef(({ className, spacing = "default", ...props }, ref) => {
   const spacings = {
-    tight: "p-4",
-    default: "p-6",
-    loose: "p-8"
+    tight: "p-3 sm:p-4",
+    default: "p-4 sm:p-6",
+    loose: "p-6 sm:p-8"
   };
 
   return (
@@ -103,9 +103,9 @@ CardDescription.displayName = "CardDescription";
 const CardContent = React.forwardRef(({ className, spacing = "default", ...props }, ref) => {
   const spacings = {
     none: "",
-    tight: "p-4 pt-0",
-    default: "p-6 pt-0", 
-    loose: "p-8 pt-0"
+    tight: "p-3 sm:p-4 pt-0",
+    default: "p-4 sm:p-6 pt-0", 
+    loose: "p-6 sm:p-8 pt-0"
   };
 
   return (

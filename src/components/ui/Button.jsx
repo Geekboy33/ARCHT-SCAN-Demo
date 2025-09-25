@@ -25,13 +25,13 @@ const Button = React.forwardRef(({
   };
   
   const sizes = {
-    sm: "h-9 px-4 py-2 text-sm rounded-lg",
-    default: "h-11 px-6 py-3 text-base rounded-xl",
-    lg: "h-12 px-8 py-4 text-lg rounded-xl",
-    xl: "h-14 px-10 py-5 text-xl rounded-2xl",
-    icon: "h-11 w-11 rounded-xl",
-    "icon-sm": "h-9 w-9 rounded-lg",
-    "icon-lg": "h-12 w-12 rounded-xl"
+    sm: "h-8 sm:h-9 px-3 sm:px-4 py-2 text-xs sm:text-sm rounded-lg",
+    default: "h-10 sm:h-11 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-xl",
+    lg: "h-11 sm:h-12 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg rounded-xl",
+    xl: "h-12 sm:h-14 px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl rounded-2xl",
+    icon: "h-10 w-10 sm:h-11 sm:w-11 rounded-xl",
+    "icon-sm": "h-8 w-8 sm:h-9 sm:w-9 rounded-lg",
+    "icon-lg": "h-11 w-11 sm:h-12 sm:w-12 rounded-xl"
   };
 
   const elevations = {
