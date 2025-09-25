@@ -15,6 +15,7 @@ import LegalVault from './pages/LegalVault';
 import SkyLinkBridge from './pages/SkyLinkBridge';
 import MRVESG from './pages/MRVESG';
 import PlatformDashboards from './pages/PlatformDashboards';
+import AssetExplorer from './pages/AssetExplorer';
 import Economics from './pages/Economics';
 
 function App() {
@@ -54,7 +55,7 @@ function App() {
         
         {/* Subpáginas de Assets */}
         <Route path="/assets/brazil" element={<Layout><TestPage title="Brazil Pilot" description="Brazil pilot project details" /></Layout>} />
-        <Route path="/assets/explorer" element={<Layout><TestPage title="Asset Explorer" description="Comprehensive asset exploration and discovery" /></Layout>} />
+        <Route path="/assets/explorer" element={<Layout><AssetExplorer /></Layout>} />
         
         {/* Ruta por defecto */}
         <Route path="*" element={<Navigate to="/" replace />} />
