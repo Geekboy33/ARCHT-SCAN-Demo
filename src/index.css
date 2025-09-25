@@ -113,23 +113,23 @@
 @layer components {
   /* Professional Card System */
   .card-professional {
-    @apply bg-black/80 backdrop-blur-md border border-white/8 rounded-2xl;
+    @apply bg-black/80 backdrop-blur-md border border-white/[.08] rounded-2xl;
     @apply shadow-xl hover:shadow-2xl transition-all duration-300;
-    @apply hover:border-white/12 hover:bg-black/90;
+    @apply hover:border-white/[.12] hover:bg-black/90;
     box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
   
   .card-elevated {
-    @apply bg-black/90 backdrop-blur-lg border border-white/10 rounded-2xl;
+    @apply bg-black/90 backdrop-blur-lg border border-white/[.10] rounded-2xl;
     @apply shadow-2xl hover:shadow-glow transition-all duration-500;
     @apply hover:border-cyan-400/30 hover:bg-black/95;
     box-shadow: var(--shadow-xl), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
   
   .card-glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+    @apply bg-white/5 backdrop-blur-xl border border-white/[.10] rounded-2xl;
     @apply shadow-lg hover:shadow-xl transition-all duration-300;
-    @apply hover:bg-white/8 hover:border-white/15;
+    @apply hover:bg-white/[.08] hover:border-white/[.15];
     box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
   
@@ -150,7 +150,7 @@
   
   .btn-ghost {
     @apply bg-transparent text-white font-medium px-6 py-3 rounded-lg;
-    @apply hover:bg-white/10 transition-all duration-200;
+    @apply hover:bg-white/[.10] transition-all duration-200;
     @apply hover:scale-105 active:scale-95;
   }
   
